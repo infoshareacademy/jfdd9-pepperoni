@@ -1,0 +1,9 @@
+.obraz {
+    background: url('img/gun1.jpeg');
+    background-size: cover;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+}
