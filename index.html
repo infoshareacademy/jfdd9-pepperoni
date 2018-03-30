@@ -11,22 +11,18 @@
 <section id="features"></section>
 <section id="about-us"></section>
 
-<section id="form">
-    <div id="tło">
+<section id="form" class="form-section" >
+    <div class="form-section-layer" >
+        <img src="zdjęcia/koperta.jpg" width="100" >
+        <p> Po wpisaniu maila, zostanie wysłany mail z informacją o premierze.</p>
+        <form action="https://formspree.io/ninagorska@gmail.com"
+              method="POST">
+            <input type="email" name="clientemail" placeholder="YourEmail">
+            <button> Wyślij</button>
+        </form>
 
-        <div id="okno do wpisania maila" align="center">
-            <img src="zdjęcia/koperta.jpg" width="100px" >
-            <form action="https://formspree.io/ninagorska@gmail.com"
-                  method="POST">
-                <input type="email" name="clientemail" placeholder="YourEmail">
-                <button> Wyślij</button>
-            </form>
-            <p> Po wpisaniu maila, zostanie wysłany mail z informacją o premierze.</p>
-            <p> Zapewniamy poufność danych.</p>
-        </div>
+        <p> Zapewniamy poufność danych.</p>
     </div>
-
-
 </section>
 </body>
 </html>
