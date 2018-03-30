@@ -33,7 +33,7 @@ section {
 
 }
 .form-section {
-    background: black;
+    color:#090909;
     height: 80vh;
     display: flex;
     align-items: center;
@@ -61,5 +61,7 @@ section {
 
 .subscribe {
     margin-top: 0px;
+    text-shadow: 3px 3px #CBCBCB;
+    font-size: 25px;
     /*font: ;*/
 }
