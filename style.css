@@ -1,4 +1,19 @@
+.imagehero {
+    background: url('img/gun1.jpeg');
+    background-size: cover;
+    height: 100vh;
+}
+.header{
+   /* position: absolute;
+    top:60%;
+    left:20%;
+    transform: translate(-50%,-50%);*/
+    color:white;
+    font-size: 30px;
+}
 body {
+    margin: 0;
+
     background-color: #090909;
     color: #CBCBCB;
     font-family: "Book Antiqua", serif;
