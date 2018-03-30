@@ -4,7 +4,6 @@ body {
     font-family: "Book Antiqua", serif;
 }
 
-
 h2 {
     text-transform: uppercase;
     line-height: 40px;
@@ -45,9 +44,7 @@ section {
 .feature-description,
 .team-description{
     text-align: center;
-    margin: 0;
+    margin: 10px;
     width: 300px;
     height: 300px;
-
-
 }
