@@ -36,6 +36,11 @@ section {
     margin: 20px;
 }
 
+#about-us a{
+    color:#CBCBCB;
+    text-decoration: none;
+}
+
 
 .feature-description,
 .team-description{
