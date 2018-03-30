@@ -1,3 +1,28 @@
+body {
+    background-color: #090909;
+    color: #CBCBCB;
+    font-family: "Book Antiqua", serif;
+}
+
+
+h2 {
+    text-transform: uppercase;
+    line-height: 40px;
+    text-align: center;
+    width: 100%;
+
+}
+section {
+    margin: 40px 0;
+    padding: 40px 40px;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
 #about-us div{
     display: inline-block;
 }
@@ -7,3 +32,12 @@ border-radius: 50%;
     margin: 20px;
 }
 
+
+.feature-description {
+    text-align: center;
+    margin: 0;
+    width: 300px;
+    height: 300px;
+
+
+}
