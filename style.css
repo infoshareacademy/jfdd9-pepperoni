@@ -20,7 +20,7 @@ section {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 80px;
+    margin-top: 80px;
 }
 
 .feature-description {
