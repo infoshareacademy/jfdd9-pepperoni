@@ -1,8 +1,6 @@
-
-
 .form-section {
     background: black;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     align-items: center;
 }
@@ -15,14 +13,18 @@
     border-radius: 30px;
 }
 
-.form-section-layer button {
+
+.form-email {
     height: 30px;
-    border-radius: 5px;
-    background-color: white;
+    border-radius: 5px 0px 0px 5px;
 }
 
-.form-section-layer input {
-    height: 30px;
-    border-radius: 5px;
+.button {
+    height: 36px;
+    width: 100px;
+    border-radius: 0px 5px 5px 0px;
 }
 
+.subscribe {
+    margin-top: 0px;
+}
