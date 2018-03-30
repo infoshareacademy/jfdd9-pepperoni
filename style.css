@@ -1,21 +1,27 @@
 body {
     background-color: #090909;
-    color: #fff;
+    color: #CBCBCB;
+    font-family: "Book Antiqua", serif;
 }
 
-#features {
-    box-sizing: border-box;
 
-}
-
-#features h2 {
+h2 {
+    text-transform: uppercase;
+    line-height: 40px;
     text-align: center;
     width: 100%;
+
+}
+section {
+    margin: 40px 0;
+    padding: 40px 40px;
 }
 
 .features-container {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 80px;
 }
 
 .feature-description {
