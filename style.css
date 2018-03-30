@@ -1,0 +1,9 @@
+#about-us div{
+    display: inline-block;
+}
+
+#about-us img{
+border-radius: 50%;
+    margin: 20px;
+}
+
