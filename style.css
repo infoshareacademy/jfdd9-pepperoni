@@ -1,3 +1,10 @@
+body {
+    margin: 0;
+    background-color: #090909;
+    color: #CBCBCB;
+    font-family: "Book Antiqua", serif;
+}
+
 .imagehero {
     background: url('img/gun1.jpeg');
     background-size: cover;
@@ -8,15 +15,31 @@
     top:60%;
     left:20%;
     transform: translate(-50%,-50%);*/
-    color:white;
-    font-size: 30px;
+    font-size: 25px;
 }
-body {
-    margin: 0;
 
-    background-color: #090909;
+button {
+    min-height: 60px;
+    min-width: 200px;
+    background-color: #E2083C;
+    border: none;
     color: #CBCBCB;
-    font-family: "Book Antiqua", serif;
+    font-weight: bolder;
+    font-size: 20px;
+    position: relative;
+    left: 150px;
+    top: 50px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.hero-description {
+    position: relative;
+    top: 100px;
+    margin-left: 20px;
+    max-width: 45%;
 }
 
 h2 {
@@ -27,8 +50,8 @@ h2 {
 
 }
 section {
-    margin: 40px 0;
-    padding: 40px 40px;
+    margin: 20px 0;
+    padding: 40px 20px;
 }
 .features-container {
     display: flex;
@@ -41,7 +64,7 @@ section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 80px auto 0;
+    margin: 40px auto 0;
     max-width: 700px;
     }
 
@@ -55,17 +78,19 @@ section {
     text-decoration: none;
 }
 
-
 .feature-description,
 .team-description{
     text-align: center;
     margin: 10px;
     width: 300px;
-    height: 300px;
 }
+
+.team-member {
+    margin: 20px;
+}
+
 .form-section {
     color:#090909;
-    height: 80vh;
     display: flex;
     align-items: center;
 }
@@ -81,17 +106,17 @@ section {
 
 .form-email {
     height: 30px;
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 0 0 5;
 }
 
 .button {
     height: 36px;
     width: 100px;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0 5px 5px 0;
 }
 
 .subscribe {
-    margin-top: 0px;
+    margin-top: 0;
     text-shadow: 3px 3px #CBCBCB;
     font-size: 25px;
     /*font: ;*/
