@@ -71,8 +71,10 @@ section {
 }
 
 .form-section-layer {
-    background: white;
-    width: 400px;
+
+    background: #CBCBCB;
+    background: radial-gradient(#CBCBCB 20%, #090909 60%);
+    width: 800px;
     margin: 0 auto;
     text-align: center;
     border-radius: 30px;
@@ -85,14 +87,23 @@ section {
 }
 
 .button {
+    color: #CBCBCB;
+    font-weight: bolder;
+    font-size: 15px;
     height: 36px;
     width: 100px;
     border-radius: 0px 5px 5px 0px;
+    background: #E2083C;
 }
 
 .subscribe {
     margin-top: 0px;
     text-shadow: 3px 3px #CBCBCB;
     font-size: 25px;
+    font-weight: bolder;
     /*font: ;*/
+}
+
+#form p{
+    font-size: 20px;
 }
