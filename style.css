@@ -161,16 +161,17 @@ li a{
 
     display: block;
     color: white;
+    font-size: large;
     text-align: center;
-    padding: 80px 60px;
+    padding: 35px 35px;
     text-decoration: none;
 
 }
 li a:hover {
-    background-color: #707070;
+    background-color: #E2083C;
 }
 .logo {
-    height: 150px;
+    height: 85px;
 
 }
 
