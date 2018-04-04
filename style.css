@@ -131,10 +131,10 @@ ul{
     position: fixed;
     top: 0;
     width: 100%;
+    display:flex;
 }
 
 li{
-    float: right;
 }
 
 li a{
@@ -142,10 +142,14 @@ li a{
     display: block;
     color: white;
     text-align: center;
-    padding: 40px 40px;
+    padding: 80px 60px;
     text-decoration: none;
 
 }
 li a:hover {
     background-color: #707070;
+}
+.logo {
+    height: 150px;
+
 }
