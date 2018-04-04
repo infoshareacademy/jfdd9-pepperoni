@@ -59,7 +59,7 @@ h2 {
 }
 section {
     margin: 20px 0;
-    padding: 40px 20px;
+    padding: 200px 20px 40px;
 }
 .features-container {
     display: flex;
@@ -140,6 +140,39 @@ section {
    /* text-shadow: 3px 3px #E3E3E3;*/
     font-size: 25px;
     /*font: ;*/
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    overflow:hidden;
+    background-color: #090909;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display:flex;
+}
+
+li{
+}
+
+li a{
+
+    display: block;
+    color: white;
+    font-size: large;
+    text-align: center;
+    padding: 35px 35px;
+    text-decoration: none;
+
+}
+li a:hover {
+    background-color: #E2083C;
+}
+.logo {
+    height: 85px;
+
 }
 
 @media (max-width: 860px) {
