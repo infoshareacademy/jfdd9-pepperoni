@@ -1,5 +1,12 @@
+body {
+    margin: 0;
+    background-color: #090909;
+    color: #CBCBCB;
+    font-family: "Fanwood Text", serif;
+}
+
 .imagehero {
-    background: url('img/gun1.jpeg');
+    background: url('img/gun-small.jpg');
     background-size: cover;
     height: 100vh;
 }
@@ -8,15 +15,31 @@
     top:60%;
     left:20%;
     transform: translate(-50%,-50%);*/
-    color:white;
-    font-size: 30px;
+    font-size: 25px;
 }
-body {
-    margin: 0;
 
-    background-color: #090909;
-    color: #CBCBCB;
-    font-family: "Book Antiqua", serif;
+button {
+    min-height: 60px;
+    min-width: 200px;
+    background-color: #E2083C;
+    border: none;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 20px;
+    position: relative;
+    left: 150px;
+    top: 50px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.hero-description {
+    position: relative;
+    top: 100px;
+    margin-left: 20px;
+    max-width: 45%;
 }
 
 h2 {
@@ -27,8 +50,8 @@ h2 {
 
 }
 section {
-    margin: 40px 0;
-    padding: 40px 40px;
+    margin: 20px 0;
+    padding: 40px 20px;
 }
 .features-container {
     display: flex;
@@ -41,7 +64,7 @@ section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 80px auto 0;
+    margin: 40px auto 0;
     max-width: 700px;
     }
 
@@ -55,55 +78,68 @@ section {
     text-decoration: none;
 }
 
-
 .feature-description,
 .team-description{
     text-align: center;
     margin: 10px;
     width: 300px;
-    height: 300px;
 }
+
+.team-member {
+    margin: 20px;
+}
+
 .form-section {
     color:#090909;
-    height: 80vh;
     display: flex;
     align-items: center;
 }
 
 .form-section-layer {
-
-    background: #CBCBCB;
-    background: radial-gradient(#CBCBCB 20%, #090909 60%);
-    width: 800px;
+   /* background: white;*/
+    width: 700px;
     margin: 0 auto;
     text-align: center;
     border-radius: 30px;
+    border: solid #E2083C 2px;
+    padding-top: 30px;
+   /* background: radial-gradient(#CBCBCB, #090909 70%);*/
+
 }
 
 
 .form-email {
     height: 30px;
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+    padding-left: 1.2rem;
+    outline-color: #E2083C;
+    margin-top: 1em;
 }
 
 .button {
-    color: #CBCBCB;
-    font-weight: bolder;
-    font-size: 15px;
     height: 36px;
     width: 100px;
-    border-radius: 0px 5px 5px 0px;
-    background: #E2083C;
+    border-radius: 0 5px 5px 0;
+    font-size: 1em;
+    font-weight: bolder;
+    color: #E2083C;
+    background-color: transparent;
+    margin-top: 1em;
 }
 
 .subscribe {
-    margin-top: 0px;
-    text-shadow: 3px 3px #CBCBCB;
+    margin-top: 0;
+    /*text-shadow: 3px 3px #CBCBCB;*/
     font-size: 25px;
-    font-weight: bolder;
+    color: #CBCBCB;
+    font-family: "Fanwood Text", serif;
     /*font: ;*/
 }
+.form-section-layer p{
+    font-size: 1.1em;
+    color: #CBCBCB;
+    font-family: "Fanwood Text", serif;
+    margin: 0.3em;
 
-#form p{
-    font-size: 20px;
 }
