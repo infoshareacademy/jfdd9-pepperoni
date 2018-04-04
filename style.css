@@ -1,34 +1,44 @@
 body {
     margin: 0;
     background-color: #090909;
-    color: #CBCBCB;
+    color: #E3E3E3;
     font-family: "Fanwood Text", serif;
+    font-size: 20px;
 }
 
 .imagehero {
-    background: url('img/gun-small.jpg');
+    background: url('img/gun-smaller.jpg');
     background-size: cover;
     height: 100vh;
+    background-position-x: right;
+}
+
+h2 {
+    font-family: Quattrocento, serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
 }
 .header{
    /* position: absolute;
     top:60%;
     left:20%;
     transform: translate(-50%,-50%);*/
-    font-size: 25px;
+    font-size: 1.5rem;
 }
 
 button {
-    min-height: 60px;
-    min-width: 200px;
+    min-height: 3rem;
+    min-width: 10rem;
     background-color: #E2083C;
     border: none;
     color: #fff;
     font-weight: bolder;
-    font-size: 20px;
-    position: relative;
-    left: 150px;
-    top: 50px;
+    font-size: 1.2rem;
+    margin-left: 6rem;
+    margin-top: 0.5rem;
 }
 
 button:hover {
@@ -36,9 +46,7 @@ button:hover {
 }
 
 .hero-description {
-    position: relative;
-    top: 100px;
-    margin-left: 20px;
+    padding: 2rem;
     max-width: 45%;
 }
 
@@ -74,7 +82,7 @@ section {
 }
 
 #about-us a{
-    color:#CBCBCB;
+    color:#E3E3E3;
     text-decoration: none;
 }
 
@@ -96,28 +104,40 @@ section {
 }
 
 .form-section-layer {
-    background: white;
-    width: 400px;
+    background: #E3E3E3;
+    width: 40rem;
     margin: 0 auto;
     text-align: center;
     border-radius: 30px;
 }
 
+.form-section-layer p {
+    font-family: Quattrocento, serif;
+    font-size: 1.2rem;
+}
 
 .form-email {
-    height: 30px;
+    height: 1.8rem;
     border-radius: 5px 0 0 5px;
+    padding: 0.2rem;
+    font-family: Quattrocento, serif;
+    font-size: 1.2rem;
 }
 
 .button {
     height: 36px;
     width: 100px;
     border-radius: 0 5px 5px 0;
+    background-color: #E2083C;
+    color: white;
+    font-family: Quattrocento, serif;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .subscribe {
     margin-top: 0;
-    text-shadow: 3px 3px #CBCBCB;
+   /* text-shadow: 3px 3px #E3E3E3;*/
     font-size: 25px;
     /*font: ;*/
 }
@@ -152,4 +172,25 @@ li a:hover {
 .logo {
     height: 150px;
 
+}
+
+@media (max-width: 860px) {
+    .imagehero {
+        background-image: none;
+        height: auto;
+        margin-bottom: 10rem;
+    }
+
+    .hero-description {
+        position: relative;
+        top: 4rem;
+        margin: 1rem;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    button {
+        position: static;
+        margin: 1rem auto;
+    }
 }
