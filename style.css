@@ -121,3 +121,12 @@ section {
     font-size: 25px;
     /*font: ;*/
 }
+.member .back {
+    display: none;
+}
+.member:hover .front {
+    display: none;
+}
+.member:hover .back {
+    display: inline-block;
+}
