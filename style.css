@@ -162,8 +162,9 @@ li a{
     display: block;
     color: white;
     font-size: large;
+    text-transform: uppercase;
     text-align: center;
-    padding: 35px 35px;
+    padding:5px 35px;
     text-decoration: none;
 
 }
@@ -172,7 +173,6 @@ li a:hover {
 }
 .logo {
     height: 85px;
-
 }
 
 @media (max-width: 860px) {
@@ -194,4 +194,7 @@ li a:hover {
         position: static;
         margin: 1rem auto;
     }
+}
+.LogoNoPadding{
+    padding: 0;
 }
