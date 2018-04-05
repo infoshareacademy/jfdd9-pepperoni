@@ -202,3 +202,12 @@ li a:hover {
     margin: 0.3em;
 
 }
+.member .back {
+    display: none;
+}
+.member:hover .front {
+    display: none;
+}
+.member:hover .back {
+    display: inline-block;
+}
