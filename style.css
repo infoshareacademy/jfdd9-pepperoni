@@ -100,15 +100,18 @@ section {
 .form-section {
     color:#090909;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
 .form-section-layer {
-    background: #E3E3E3;
     width: 40rem;
     margin: 0 auto;
     text-align: center;
     border-radius: 30px;
+    padding-top: 30px;
+    background-color: #222222;
+
 }
 
 .form-section-layer p {
@@ -117,28 +120,29 @@ section {
 }
 
 .form-email {
-    height: 1.8rem;
+    height: 30px;
     border-radius: 5px 0 0 5px;
-    padding: 0.2rem;
-    font-family: Quattrocento, serif;
-    font-size: 1.2rem;
+    font-size: 1em;
+    padding-left: 1.2rem;
+    margin-top: 1em;
 }
 
 .button {
     height: 36px;
     width: 100px;
     border-radius: 0 5px 5px 0;
-    background-color: #E2083C;
-    color: white;
-    font-family: Quattrocento, serif;
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1em;
+    font-weight: bolder;
+    color: #E2083C;
+    background-color: transparent;
+    margin-top: 1em;
 }
 
 .subscribe {
-    margin-top: 0;
-   /* text-shadow: 3px 3px #E3E3E3;*/
+    margin-top: 0px;
     font-size: 25px;
+    color: #CBCBCB;
+    font-family: "Fanwood Text", serif;
     /*font: ;*/
 }
 
@@ -154,25 +158,21 @@ ul{
     display:flex;
 }
 
-li{
-}
-
 li a{
-
     display: block;
     color: white;
     font-size: large;
     text-align: center;
     padding: 35px 35px;
     text-decoration: none;
-
 }
+
 li a:hover {
     background-color: #E2083C;
 }
+
 .logo {
     height: 85px;
-
 }
 
 @media (max-width: 860px) {
@@ -194,4 +194,11 @@ li a:hover {
         position: static;
         margin: 1rem auto;
     }
+}
+.form-section-layer p{
+    font-size: 1.1em;
+    color: #CBCBCB;
+    font-family: "Fanwood Text", serif;
+    margin: 0.3em;
+
 }
