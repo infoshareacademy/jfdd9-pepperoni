@@ -100,20 +100,17 @@ section {
 .form-section {
     color:#090909;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
 .form-section-layer {
-    background: #E3E3E3;
     width: 40rem;
-   /* background: white;*/
-    width: 700px;
     margin: 0 auto;
     text-align: center;
     border-radius: 30px;
-    border: solid #E2083C 2px;
     padding-top: 30px;
-   /* background: radial-gradient(#CBCBCB, #090909 70%);*/
+    background-color: #222222;
 
 }
 
@@ -127,7 +124,6 @@ section {
     border-radius: 5px 0 0 5px;
     font-size: 1em;
     padding-left: 1.2rem;
-    outline-color: #E2083C;
     margin-top: 1em;
 }
 
@@ -144,7 +140,6 @@ section {
 
 .subscribe {
     margin-top: 0px;
-    text-shadow: 3px 3px #CBCBCB;
     font-size: 25px;
     color: #CBCBCB;
     font-family: "Fanwood Text", serif;
@@ -163,25 +158,21 @@ ul{
     display:flex;
 }
 
-li{
-}
-
 li a{
-
     display: block;
     color: white;
     font-size: large;
     text-align: center;
     padding: 35px 35px;
     text-decoration: none;
-
 }
+
 li a:hover {
     background-color: #E2083C;
 }
+
 .logo {
     height: 85px;
-
 }
 
 @media (max-width: 860px) {
