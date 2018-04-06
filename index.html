@@ -10,7 +10,9 @@
     </style>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
+
 <nav id="navbar">
     <ul>
         <li><a class="no-padding" href="#hero-section"><img class="logo" src="img/logo2.png"></a></li>
@@ -19,19 +21,14 @@
         <li><a class="menu-item" href="#form">Subscribe</a></li>
         <li><a class="menu-item" href="#hero-section">Home</a></li>
 
-        <li>
-            <a class="hidden" href="">More ￬</a>
+        <li class="visible-on-mobile">More
             <ul class="hidden-ul">
-                <li><a href="#features">About GangBook</a></li>
-                <li><a href="#about-us">Team</a></li>
-                <li><a href="#form">Subscribe</a></li>
+                <li><a class="mobile-menu-item" href="#features">About GangBook</a></li>
+                <li><a class="mobile-menu-item" href="#about-us">Team</a></li>
+                <li><a class="mobile-menu-item" href="#form">Subscribe</a></li>
             </ul>
         </li>
-
-
     </ul>
-
-
 </nav>
 
 <header id="hero-section"></header>
@@ -41,9 +38,9 @@
         <p>Use GangBook to browse through all the best men (and women!) in the world.
             <br/>Find someone who can get your job done.
             <br/>It's quick and safe!</p>
-            <a href="#form"><button type="button">Learn more</button></a>
+            <a href="#form"><button class="hero-section-button" type="button">Learn more</button></a>
         </div>
-</div>
+    </div>
 
 <section id="features">
     <h2>How does it work?</h2>
@@ -120,6 +117,7 @@
         </div>
     </div>
 </section>
+
 <section id="form" class="form-section" >
     <h2 class="subscribe">SUBSCRIBE</h2>
     <div class="form-section-layer">
@@ -129,11 +127,12 @@
         <form action="https://formspree.io/ninagorska@gmail.com"
               method="POST">
             <input class="form-email" aria-label="Type in your email" type="email" name="clientemail" placeholder="YourEmail" />
-            <input class="button" type="button" value="Send" />
+            <input class="form-button" type="button" value="Send" />
         </form>
 
         <p> Your data is secure with us.</p>
     </div>
 </section>
+
 </body>
 </html>
