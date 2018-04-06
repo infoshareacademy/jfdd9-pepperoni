@@ -9,12 +9,18 @@ body {
 .imagehero {
     background: url('img/gun-smaller.jpg');
     background-size: cover;
-    height: 100vh;
+    height: 90vh;
+    background-attachment: fixed;
     background-position-x: right;
+    background-repeat: no-repeat;
 }
 
 h2 {
     font-family: Quattrocento, serif;
+    text-transform: uppercase;
+    line-height: 40px;
+    text-align: center;
+    width: 100%;
 }
 
 h1 {
@@ -47,13 +53,6 @@ button:hover {
     max-width: 45%;
 }
 
-h2 {
-    text-transform: uppercase;
-    line-height: 40px;
-    text-align: center;
-    width: 100%;
-
-}
 section {
     margin: 20px 0;
     padding: 70px 20px 20px;
@@ -136,14 +135,13 @@ section {
 }
 
 .subscribe {
-    margin-top: 0px;
+    margin-top: 0;
     font-size: 25px;
     color: #CBCBCB;
     font-family: "Fanwood Text", serif;
-    /*font: ;*/
 }
 
-ul{
+ul {
     list-style-type: none;
     margin: 0;
     padding:0;
@@ -180,7 +178,6 @@ li a:hover {
     }
 
     .hero-description {
-        margin-top: 4rem;
         margin: 1rem;
         max-width: 100%;
         text-align: center;
@@ -196,14 +193,16 @@ li a:hover {
     color: #CBCBCB;
     font-family: "Fanwood Text", serif;
     margin: 0.3em;
-
 }
+
 .member .back {
     display: none;
 }
+
 .member:hover .front {
     display: none;
 }
+
 .member:hover .back {
     display: inline-block;
 }
