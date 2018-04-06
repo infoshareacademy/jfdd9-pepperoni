@@ -162,12 +162,21 @@ li a{
     text-decoration: none;
 }
 
-li a:hover {
+.menu-item:hover {
     background-color: #E2083C;
 }
 
 .logo {
     height: 85px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.hidden,
+.hidden-ul {
+    display: none;
 }
 
 @media (max-width: 860px) {
@@ -187,6 +196,21 @@ li a:hover {
         position: static;
         margin: 1rem auto;
     }
+
+    #navbar .menu-item {
+        display: none;
+    }
+
+    .hidden {
+        display: block;
+    }
+
+    .hidden:hover > .hidden-ul {
+        display: block;
+    }
+
+
+
 }
 .form-section-layer p{
     font-size: 1.1em;
