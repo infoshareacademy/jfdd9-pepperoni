@@ -15,6 +15,11 @@ body {
     background-repeat: no-repeat;
 }
 
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
 h2 {
     font-family: Quattrocento, serif;
     text-transform: uppercase;
@@ -23,16 +28,17 @@ h2 {
     width: 100%;
 }
 
-h1 {
-    font-size: 2.5rem;
-    text-transform: uppercase;
+section {
+    margin: 20px 0;
+    padding: 70px 20px 20px;
 }
+
 .header{
     margin-top: 90px;
     font-size: 1.5rem;
 }
 
-button {
+.hero-section-button {
     min-height: 3rem;
     min-width: 10rem;
     background-color: #E2083C;
@@ -44,7 +50,8 @@ button {
     margin-top: 0.5rem;
 }
 
-button:hover {
+.hero-section-button:hover,
+.visible-on-mobile {
     cursor: pointer;
 }
 
@@ -53,33 +60,20 @@ button:hover {
     max-width: 45%;
 }
 
-section {
-    margin: 20px 0;
-    padding: 70px 20px 20px;
+.hero-description h1,
+.hero-description p {
+    text-shadow:
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
 }
+
 .features-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 80px;
-}
-
-.team-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 40px auto 0;
-    max-width: 700px;
-    }
-
-#about-us img{
-    border-radius: 50%;
-    margin: 20px;
-}
-
-#about-us a{
-    color:#E3E3E3;
-    text-decoration: none;
 }
 
 .feature-description,
@@ -88,6 +82,37 @@ section {
     margin: 10px;
     width: 300px;
 }
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px auto 0;
+    max-width: 700px;
+}
+
+#about-us img {
+    border-radius: 50%;
+    margin: 20px;
+}
+
+#about-us a {
+    color:#E3E3E3;
+    text-decoration: none;
+}
+
+.member .back {
+    display: none;
+}
+
+.member:hover .front {
+    display: none;
+}
+
+.member:hover .back {
+    display: inline-block;
+}
+
 
 .team-member {
     margin: 20px;
@@ -107,12 +132,13 @@ section {
     border-radius: 30px;
     padding-top: 30px;
     background-color: #222222;
-
 }
 
 .form-section-layer p {
+    font-size: 1.1em;
+    color: #CBCBCB;
     font-family: Quattrocento, serif;
-    font-size: 1.2rem;
+    margin: 0.3em;
 }
 
 .form-email {
@@ -123,7 +149,7 @@ section {
     margin-top: 1em;
 }
 
-.button {
+.form-button {
     height: 36px;
     width: 100px;
     border-radius: 0 5px 5px 0;
@@ -141,21 +167,30 @@ section {
     font-family: "Fanwood Text", serif;
 }
 
-ul {
+
+#navbar ul {
+    font-family: "Quattrocento", serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+
+ul:not(.hidden-ul) {
     list-style-type: none;
     margin: 0;
-    padding:0;
+    padding: 0;
     overflow:hidden;
     background-color: #090909;
     position: fixed;
     top: 0;
     width: 100%;
-    display:flex;
+    display: flex;
 }
 
-li a{
+li .menu-item,
+.visible-on-mobile {
     display: block;
-    color: white;
+    color: #E3E3E3;
     font-size: large;
     text-align: center;
     padding: 35px 35px;
@@ -174,10 +209,12 @@ li a{
     padding: 0;
 }
 
-.hidden,
+.visible-on-mobile,
 .hidden-ul {
     display: none;
 }
+
+
 
 @media (max-width: 860px) {
     .imagehero {
@@ -192,7 +229,7 @@ li a{
         text-align: center;
     }
 
-    button {
+    .hero-section-button {
         position: static;
         margin: 1rem auto;
     }
@@ -201,35 +238,53 @@ li a{
         display: none;
     }
 
-    .hidden {
+    .visible-on-mobile {
         display: block;
+        padding-bottom: 1rem;
+        text-align: left;
     }
 
-    .hidden:hover + .hidden-ul {
+    .visible-on-mobile:hover ul {
         display: block;
         float: none;
     }
 
+    .hidden-ul a {
+        display: block;
+        padding: 1.2rem;
+    }
 
+    .hidden-ul {
+        padding: 0;
+        text-align: left;
+        list-style-type: none;
+        text-decoration: none;
+        color: #E3E3E3;
+    }
 
+    .mobile-menu-item {
+        line-height: 2rem;
+    }
 
+    .hidden-ul:first-child {
+        margin-top: 1.2rem;
+    }
+
+    .mobile-menu-item:link,
+    .mobile-menu-item:hover,
+    .mobile-menu-item:visited {
+        list-style-type: none;
+        text-decoration: none;
+        color: #E3E3E3;
+    }
+
+    .mobile-menu-item:hover {
+        background-color: #E2083C;
+    }
+
+    section {
+        padding: 1rem;
+    }
 
 }
-.form-section-layer p{
-    font-size: 1.1em;
-    color: #CBCBCB;
-    font-family: "Fanwood Text", serif;
-    margin: 0.3em;
-}
 
-.member .back {
-    display: none;
-}
-
-.member:hover .front {
-    display: none;
-}
-
-.member:hover .back {
-    display: inline-block;
-}
