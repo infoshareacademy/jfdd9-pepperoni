@@ -208,9 +208,12 @@ li a{
         display: block;
     }
 
-    .hidden:hover > .hidden-ul {
+    .hidden:hover + .hidden-ul {
         display: block;
+        float: none;
     }
+
+
 
 
 
