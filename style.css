@@ -3,18 +3,24 @@ body {
     background-color: #090909;
     color: #E3E3E3;
     font-family: "Fanwood Text", serif;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .imagehero {
     background: url('img/gun-smaller.jpg');
     background-size: cover;
-    height: 100vh;
+    height: 90vh;
+    background-attachment: fixed;
     background-position-x: right;
+    background-repeat: no-repeat;
 }
 
 h2 {
     font-family: Quattrocento, serif;
+    text-transform: uppercase;
+    line-height: 40px;
+    text-align: center;
+    width: 100%;
 }
 
 h1 {
@@ -22,10 +28,7 @@ h1 {
     text-transform: uppercase;
 }
 .header{
-   /* position: absolute;
-    top:60%;
-    left:20%;
-    transform: translate(-50%,-50%);*/
+    margin-top: 90px;
     font-size: 1.5rem;
 }
 
@@ -50,16 +53,9 @@ button:hover {
     max-width: 45%;
 }
 
-h2 {
-    text-transform: uppercase;
-    line-height: 40px;
-    text-align: center;
-    width: 100%;
-
-}
 section {
     margin: 20px 0;
-    padding: 200px 20px 40px;
+    padding: 70px 20px 20px;
 }
 .features-container {
     display: flex;
@@ -139,14 +135,13 @@ section {
 }
 
 .subscribe {
-    margin-top: 0px;
+    margin-top: 0;
     font-size: 25px;
     color: #CBCBCB;
     font-family: "Fanwood Text", serif;
-    /*font: ;*/
 }
 
-ul{
+ul {
     list-style-type: none;
     margin: 0;
     padding:0;
@@ -183,8 +178,6 @@ li a:hover {
     }
 
     .hero-description {
-        position: relative;
-        top: 4rem;
         margin: 1rem;
         max-width: 100%;
         text-align: center;
@@ -200,14 +193,16 @@ li a:hover {
     color: #CBCBCB;
     font-family: "Fanwood Text", serif;
     margin: 0.3em;
-
 }
+
 .member .back {
     display: none;
 }
+
 .member:hover .front {
     display: none;
 }
+
 .member:hover .back {
     display: inline-block;
 }
