@@ -10,16 +10,27 @@
     </style>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
+
 <nav id="navbar">
     <ul>
-        <li> <a class="LogoNoPadding" href="#hero-section"><img class=logo src="img/logo2.png"> </a></li>
-        <li><a href="#features">About GangBook</a></li>
-        <li><a href="#about-us">About us</a></li>
-        <li><a href="#form">Subscribe</a></li>
-        <li><a href="#hero-section">Home</a></li>
+        <li><a class="no-padding" href="#hero-section"><img class="logo" src="img/logo3.png"></a></li>
+        <li><a class="menu-item" href="#features">About GangBook</a></li>
+        <li><a class="menu-item" href="#about-us">Team</a></li>
+        <li><a class="menu-item" href="#form">Subscribe</a></li>
+        <li><a class="menu-item" href="#hero-section">Home</a></li>
+
+        <li class="visible-on-mobile">More
+            <ul class="hidden-ul">
+                <li><a class="mobile-menu-item" href="#features">About GangBook</a></li>
+                <li><a class="mobile-menu-item" href="#about-us">Team</a></li>
+                <li><a class="mobile-menu-item" href="#form">Subscribe</a></li>
+            </ul>
+        </li>
     </ul>
 </nav>
+
 <header id="hero-section"></header>
     <div class="imagehero header">
         <div class="hero-description">
@@ -27,9 +38,9 @@
         <p>Use GangBook to browse through all the best men (and women!) in the world.
             <br/>Find someone who can get your job done.
             <br/>It's quick and safe!</p>
-            <a href="#form"><button type="button">Learn more</button></a>
+            <a href="#form"><button class="hero-section-button" type="button">Learn more</button></a>
         </div>
-</div>
+    </div>
 
 <section id="features">
     <h2>How does it work?</h2>
@@ -61,7 +72,10 @@
     <h2>About us</h2>
     <div class="team-container">
         <div class="team-description">
-            <img src="team-img/paulina1.jpg" alt="Paulina Chojnowska" width="200"/>
+            <div class="member">
+                <img src="team-img/paulina1.jpg" alt="Paulina Chojnowska" class="front" width="200"/>
+                <img src="team-img/paulina2.jpg" alt="Paulina Chojnowska" class="back" width="200"/>
+            </div>
             <h3>Paulina Chojnowska</h3>
             <div class="team-member">
                 <p>When the season begins, she takes her motorcycle out of the garage and sets off on an adventure.</p>
@@ -69,7 +83,10 @@
             </div>
         </div>
         <div class="team-description">
-            <img src="team-img/patryk1.jpg" alt="Patryk Czupryn" width="200"/>
+            <div class="member">
+                <img src="team-img/patryk1.jpg" alt="Patryk Czupryn" class="front" width="200"/>
+                <img src="team-img/patryk2.jpg" alt="Patryk Czupryn" class="back" width="200"/>
+            </div>
             <h3>Patryk Czupryn</h3>
             <div class="team-member">
                 <p>He lives in the biggest slums of Bangladesh. If you make him angry, he'll make sure to call his pitbull.</p>
@@ -77,15 +94,21 @@
             </div>
         </div>
         <div class="team-description">
-            <img src="team-img/nina1.jpg" alt="Nina Gostańska" width="200"/>
-            <h3>Nina Gostańska</h3>
+            <div class="member">
+                <img src="team-img/nina1.jpg" alt="Nina Gostańska" class="front" width="200"/>
+                <img src="team-img/nina2.jpg" alt="Nina Gostańska" class="back" width="200"/>
+            </div>
+            <h3>Nina Gostanska</h3>
             <div class="team-member">
                 <p>She's nice and helpful but never forgets when she keeps her gun.</p>
                 <a href="https://pl.linkedin.com/in/ninagostanska">linkedIN</a>
             </div>
         </div>
         <div class="team-description">
-            <img src="team-img/dominika1.jpg" alt="Dominika Krawczyk" width="200"/>
+            <div class="member">
+                <img src="team-img/dominika1.jpg" alt="Dominika Krawczyk" class="front" width="200"/>
+                <img src="team-img/dominika2.jpg" alt="Dominika Krawczyk" class="back" width="200"/>
+            </div>
             <h3>Dominika Krawczyk</h3>
             <div class="team-member">
                 <p>Watch out if you work with her! If angry, she won't think twice before beating you up.</p>
@@ -94,17 +117,24 @@
         </div>
     </div>
 </section>
+
 <section id="form" class="form-section" >
-    <div class="form-section-layer" >
-        <img src="img/envelope.jpg" alt="Email icon" width="100" >
-        <h2 class="subscribe">Learn more</h2>
-        <p>If you're interested in using GangBook, let us know. We'll send you an email you when the product is ready to go.</p>
-        <form action="https://formspree.io/ninagorska@gmail.com" method="POST">
-            <input class="form-email" aria-label="Type in your email" type="email" name="clientemail" placeholder="Enter email" />
-            <input class="button" type="button" value="Send" />
+
+    <div class="form-section-layer">
+        <h2 class="subscribe-header">SUBSCRIBE</h2>
+        <p>If you're interested in using GangBook, let us know.
+            <br/>
+            We'll send you an email when the product is ready.</p>
+        <form action="https://formspree.io/ninagorska@gmail.com"
+              method="POST">
+            <input class="form-email" aria-label="Type in your email" type="email" name="clientemail" placeholder="Your Email" />
+            <br/>
+            <input class="form-button" type="button" value="Submit" />
         </form>
-        <p>Your data is secure with us.</p>
+        <p> Your data is secure with us.</p>
     </div>
 </section>
+
+<script src="script.js"></script>
 </body>
 </html>
