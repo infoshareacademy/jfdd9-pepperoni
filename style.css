@@ -60,6 +60,7 @@ section {
     cursor: pointer;
 }
 
+
 .hero-description {
     padding: 2rem;
     max-width: 45%;
@@ -109,7 +110,6 @@ section {
 .member:hover .back {
     display: inline-block;
 }
-
 
 .team-member {
     margin: 20px;
@@ -164,62 +164,6 @@ input[type="email"] {
 #form {
     margin-bottom: 5rem;
 }
-/* KONIEC KLAS FORMULARZA PAULINY */
-
-
-
-
-/* KLASY FORMULARZA NINY
-.form-section {
-    color:#090909;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.form-section-layer {
-    width: 40rem;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 30px;
-    padding-top: 30px;
-    background-color: #222222;
-}
-
-.form-section-layer p {
-    font-size: 1.1em;
-    color: #CBCBCB;
-    font-family: Quattrocento, serif;
-    margin: 0.3em;
-}
-
-.form-email {
-    height: 30px;
-    border-radius: 5px 0 0 5px;
-    font-size: 1em;
-    padding-left: 1.2rem;
-    margin-top: 1em;
-}
-
-.form-button {
-    height: 36px;
-    width: 100px;
-    border-radius: 0 5px 5px 0;
-    font-size: 1em;
-    font-weight: bolder;
-    color: #E2083C;
-    background-color: transparent;
-    margin-top: 1em;
-}
-
-.subscribe {
-    margin-top: 0;
-    font-size: 25px;
-    color: #CBCBCB;
-    font-family: "Fanwood Text", serif;
-}
-
-*/
 
 #navbar ul {
     font-family: "Quattrocento", serif;
@@ -267,7 +211,6 @@ li .menu-item,
 .hidden-ul {
     display: none;
 }
-
 
 
 @media (max-width: 860px) {
