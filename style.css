@@ -185,14 +185,19 @@ ul:not(.hidden-ul) {
     display: flex;
 }
 
-li .menu-item,
-.visible-on-mobile {
+li .menu-item, {
     display: block;
     color: #ececec;
     font-size: large;
     text-align: center;
     padding: 35px 35px;
     text-decoration: none;
+}
+
+.menu-logo {
+    width: 2.5rem;
+    height: auto;
+    padding: 1.5rem 1rem 1rem;
 }
 
 .menu-item:hover {
@@ -243,12 +248,16 @@ li .menu-item,
 
     .visible-on-mobile:hover ul {
         display: block;
-        float: none;
     }
 
     .hidden-ul a {
         display: block;
         padding: 1.2rem;
+    }
+
+    .menu-logo,
+    .mobile-menu-item {
+        float: right;
     }
 
     .hidden-ul {
