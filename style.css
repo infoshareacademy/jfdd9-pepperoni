@@ -185,7 +185,8 @@ ul:not(.hidden-ul) {
     display: flex;
 }
 
-li .menu-item, {
+
+li .menu-item {
     display: block;
     color: #ececec;
     font-size: large;
@@ -240,10 +241,15 @@ li .menu-item, {
         display: none;
     }
 
+    #navbar ul {
+         justify-content: space-between;
+    }
+
     .visible-on-mobile {
-        display: block;
         padding-bottom: 1rem;
-        text-align: left;
+        display: block;
+        float: right;
+        margin-left: -8rem;
     }
 
     .visible-on-mobile:hover ul {
@@ -255,14 +261,10 @@ li .menu-item, {
         padding: 1.2rem;
     }
 
-    .menu-logo,
-    .mobile-menu-item {
-        float: right;
-    }
-
+    .visible-on-mobile,
     .hidden-ul {
         padding: 0;
-        text-align: left;
+        text-align: right;
         list-style-type: none;
         text-decoration: none;
         color: #ececec;
