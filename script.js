@@ -1,5 +1,10 @@
-window.addEventListener("hashchange", function () {
-    window.scrollTo(window.scrollX, window.scrollY - 100);
-});
+// window.addEventListener("hashchange", function () {
+//     window.scrollTo(window.scrollX, window.scrollY - 100);
+// });
 
-var buttonNode = document.getElementById('subscribe')
+$(document).on('click', 'a', function(event){
+    event.preventDefault();
+    $('html,body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 800);
+});
