@@ -1,29 +1,38 @@
-window.addEventListener("hashchange", function () {
-    window.scrollTo(window.scrollX, window.scrollY - 100);
-});
-
-var featuresSection = document.getElementById("features");
-var featuresPosition = document.getElementById("features").getBoundingClientRect();
+// window.addEventListener("hashchange", function () {
+//     window.scrollTo(window.scrollX, window.scrollY - 100);
+// });
 
 
-function myFunction() {
-    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 50) {
-        document.getElementById("features").className = "animated bounceOutLeft";
-    } else {
-        document.getElementById("features").className = "animated bounceOutLeft";
-    }
+var elementsToAnimate = document.getElementsByClassName("feature-description");
+var arrayToAnimate = [].slice.call(elementsToAnimate);
+
+
+function isInViewport() {
+    var featuresPosition = document.getElementById("features").getBoundingClientRect();
+    var featuresTop = featuresPosition.top;
+    var featuresBottom = featuresPosition.bottom;
+    var viewportTop = document.body.scrollTop+500;
+    var viewportBottom  = viewportTop + window.innerHeight;
+    return featuresBottom > viewportTop && featuresTop < viewportBottom;
 }
 
+function addAnimatedClass(element, delay) {
+    setTimeout(function() {
+        element.classList.remove("not-visible");
+        element.classList.add("animated");
+        element.classList.add("fadeInRight");
+    }, delay);
+}
 
-
-// window.addEventListener("scroll", function () {
-//     alert("Hello");
-//
-//
-//     if (featuresSection.scrollTop > featuresPosition.top) {
-//         alert("Hello");
-//     }
-// });
-//
-//
-// console.log(featuresPosition.top, featuresPosition.right, featuresPosition.bottom, featuresPosition.left);
+function addAnimation () {
+    if (isInViewport()) {
+        index = 0;
+        for (var i = 0; i < arrayToAnimate.length; i++) {
+            addAnimatedClass(arrayToAnimate[index], i*500);
+            index++;
+        }
+        event.stopPropagation();
+        window.removeEventListener("scroll", addAnimation);
+    }
+}
+window.addEventListener("scroll", addAnimation);
