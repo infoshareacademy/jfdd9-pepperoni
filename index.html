@@ -125,11 +125,11 @@
         <p>If you're interested in using GangBook, let us know.
             <br/>
             We'll send you an email when the product is ready.</p>
-        <form action="https://formspree.io/ninagorska@gmail.com"
-              method="POST">
-            <input class="form-email" aria-label="Type in your email" type="email" name="clientemail" placeholder="Your Email" />
+        <form action="https://formspree.io/ninagorska@gmail.com" method="POST">
+            <input class="form-email" aria-label="Type in your email" type="email" name="clientemail" placeholder="Your Email" required/>
             <br/>
-            <input class="form-button" type="button" value="Submit" />
+            <input type="hidden" name="_next" value="/jfdd9-pepperoni/game.html"/>
+            <button id="subscribe" class="form-button" type="submit">Subscribe</button>
         </form>
         <p> Your data is secure with us.</p>
     </div>
@@ -138,3 +138,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
