@@ -185,14 +185,20 @@ ul:not(.hidden-ul) {
     display: flex;
 }
 
-li .menu-item,
-.visible-on-mobile {
+
+li .menu-item {
     display: block;
     color: #ececec;
     font-size: large;
     text-align: center;
     padding: 35px 35px;
     text-decoration: none;
+}
+
+.menu-logo {
+    width: 2.5rem;
+    height: auto;
+    padding: 1.5rem 1rem 1rem;
 }
 
 .menu-item:hover {
@@ -235,15 +241,19 @@ li .menu-item,
         display: none;
     }
 
+    #navbar ul {
+         justify-content: space-between;
+    }
+
     .visible-on-mobile {
-        display: block;
         padding-bottom: 1rem;
-        text-align: left;
+        display: block;
+        float: right;
+        margin-left: -8rem;
     }
 
     .visible-on-mobile:hover ul {
         display: block;
-        float: none;
     }
 
     .hidden-ul a {
@@ -251,9 +261,10 @@ li .menu-item,
         padding: 1.2rem;
     }
 
+    .visible-on-mobile,
     .hidden-ul {
         padding: 0;
-        text-align: left;
+        text-align: right;
         list-style-type: none;
         text-decoration: none;
         color: #ececec;
