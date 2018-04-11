@@ -66,12 +66,14 @@ section {
     max-width: 45%;
 }
 
+
 .features-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 80px;
 }
+
 
 .feature-description,
 .team-description{
@@ -217,6 +219,7 @@ li .menu-item {
 .hidden-ul {
     display: none;
 }
+
 
 
 @media (max-width: 860px) {
