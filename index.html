@@ -128,7 +128,8 @@
         <form action="https://formspree.io/ninagorska@gmail.com" method="POST">
             <input class="form-email" aria-label="Type in your email" type="email" name="clientemail" placeholder="Your Email" required/>
             <br/>
-            <input class="form-button" type="button" value="Submit" />
+            <input type="hidden" name="_next" value="/jfdd9-pepperoni/game.html"/>
+            <button id="subscribe" class="form-button" type="submit">Subscribe</button>
         </form>
         <p> Your data is secure with us.</p>
     </div>
@@ -138,25 +139,3 @@
 </body>
 </html>
 
-
-
-
-<!--formularz Kamila-->
-
-<form class="form-fields" method="POST" action="https://formspree.io/baldakamil@gmail.com">
-    <p class="form-zapro font-15em">Chcesz jako pierwszy dowiedzieć się o premierze naszego produktu?</p>
-    <div class="btn-name-field">
-        <input type="name" class="inp-field font-11em" name="client-name" placeholder="Wpisz swoje imię" required>
-    </div>
-    <div class="btn-email-field">
-        <input type="email" class="inp-field font-11em" name="client-email" placeholder="Wpisz swój adres email" required>
-    </div>
-    <input type="hidden" name="_next" value="index.html?form_send"/>
-    <div class="btn2">
-        <button type="submit" class="btn bg-menu">Zapisz się</button>
-    </div>
-</form>
-
-<!--JS-->
-
-document.location.href.indexOf('form_send') !== -1 ? alert('wysłano') : ''
