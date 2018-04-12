@@ -1,0 +1,35 @@
+.thank-you {
+    text-align: center;
+}
+
+.section-game {
+    width: 100vw;
+    height: 70vh;
+    text-align: center;
+
+}
+
+#game {
+    height: 90%;
+    width: 70%;
+    border: 1px solid black;
+    margin: 0 auto;
+    position: relative;
+}
+
+.gangster {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    height: 15%;
+    width: 5%;
+    background-color: black;
+}
+
+.civilian {
+    position: absolute;
+    bottom: 0;
+    height: 15%;
+    width: 5%;
+    background-color: yellow;
+}
