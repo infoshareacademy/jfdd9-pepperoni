@@ -66,6 +66,7 @@ section {
     max-width: 45%;
 }
 
+
 .features-container {
     display: flex;
     justify-content: space-around;
@@ -73,11 +74,16 @@ section {
     margin-top: 80px;
 }
 
+
 .feature-description,
 .team-description{
     text-align: center;
     margin: 10px;
     width: 300px;
+}
+
+.not-visible {
+    visibility: hidden;
 }
 
 .team-container {
@@ -183,6 +189,7 @@ ul:not(.hidden-ul) {
     top: 0;
     width: 100%;
     display: flex;
+    z-index: 5;
 }
 
 
@@ -218,6 +225,9 @@ li .menu-item {
     display: none;
 }
 
+.yellow {
+    background-color: yellow;
+}
 
 @media (max-width: 860px) {
     .imagehero {
