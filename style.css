@@ -189,6 +189,7 @@ ul:not(.hidden-ul) {
     top: 0;
     width: 100%;
     display: flex;
+    z-index: 5;
 }
 
 
