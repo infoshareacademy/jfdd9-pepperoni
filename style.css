@@ -194,7 +194,9 @@ li .menu-item,
     padding: 35px 35px;
     text-decoration: none;
 }
-
+.active {
+    background-color: #E2083C;
+}
 .menu-item:hover {
     background-color: #E2083C;
 }
