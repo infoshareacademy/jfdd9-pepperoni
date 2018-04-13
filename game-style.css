@@ -17,19 +17,18 @@
     position: relative;
 }
 
+.person {
+    bottom: 0;
+    height: 100px;
+    width: 40px;
+}
+
 .gangster {
     position: absolute;
-    bottom: 0;
-    left: 10%;
-    height: 15%;
-    width: 5%;
     background-color: black;
 }
 
 .civilian {
     position: absolute;
-    bottom: 0;
-    height: 15%;
-    width: 5%;
     background-color: yellow;
 }
