@@ -97,3 +97,4 @@ function finishGame() {
 
 runGame();
 
+//TODO: welcome screen with instructions, game over screen (with points gathered & restart button, records?
