@@ -1,53 +1,46 @@
-var gameBoard = document.getElementById("game");
-var gangster = document.createElement("div");
-var civilian = document.createElement("div");
 var scoreSection = document.getElementById("score");
+var gameBoard = document.getElementById("game");
+var score = 0;
+var arrayWithSlots = [];
+var positionPerson;
+var personWidth = 40;
+var civilianProbability = 0.4;
+var gameInterval;
+var civiliansKilled = 0;
 
-
-
+//Creating array of available pixel slots. The function accepts person's width as an argument.
 var boardGameWidth = gameBoard.offsetWidth;
 
 function findSlots(personWidth) {
-    return boardGameWidth/personWidth;
+    return boardGameWidth / personWidth;
 }
 
-//Creating array of available pixel slots. The function accepts person's width as an argument.
-function createArrayWithSlots(personWidth) {
-    return arrayWithSlots = Array.from({length: findSlots(personWidth)}, function (element, index) {return index * personWidth});
+function recreateArrayWithSlots(personWidth) {
+    arrayWithSlots = Array.from({length: findSlots(personWidth)}, function (element, index) {
+        return index * personWidth
+    });
 }
+////
 
-createArrayWithSlots(40);
-var positionPerson;
-
-function generatePerson(person){
+function generatePerson(personClass) {
     if (arrayWithSlots.length === 0) {
         return;
     }
     var personNode = document.createElement("div");
-    gameBoard.appendChild(personNode);
+
     personNode.classList.add("person");
-    personNode.classList.add(person);
+    personNode.classList.add(personClass);
 
     positionPerson = arrayWithSlots[Math.floor(Math.random() * arrayWithSlots.length)];
-
     personNode.style.left = positionPerson + "px";
+
+    gameBoard.appendChild(personNode);
 
     arrayWithSlots.splice(arrayWithSlots.indexOf(positionPerson), 1);
 }
 
 
-
-var personInterval = setInterval(function() {
-    if (Math.random() > 0.2) {
-        generatePerson("gangster")
-    } else {
-        generatePerson('civilian')
-    }
-}, 500);
-
-var score = 0;
-
-gameBoard.addEventListener("click", function(event) {
+gameBoard.addEventListener("click", function (event) {
     var clickedElement = event.target;
     if (clickedElement.classList.contains("person")) {
         gameBoard.removeChild(clickedElement);
@@ -56,8 +49,51 @@ gameBoard.addEventListener("click", function(event) {
             score += 100;
         } else if (clickedElement.classList.contains("civilian")) {
             score -= 100;
+            civiliansKilled += 1;
+            if (civiliansKilled === 3) {
+                finishGame();
+            }
         }
     }
     scoreSection.innerText = "Score: " + score;
 });
+
+function clearBoard() {
+    while (gameBoard.firstChild) {
+        gameBoard.removeChild(gameBoard.firstChild);
+    }
+}
+
+
+function createRandomPerson() {
+    if (Math.random() > civilianProbability) {
+        generatePerson("gangster")
+    } else {
+        generatePerson('civilian')
+    }
+}
+
+function update() {
+
+    clearBoard();
+
+    recreateArrayWithSlots(personWidth);
+
+    for (var i = 0; i<5; i++) {
+        createRandomPerson();
+    }
+
+}
+
+
+function runGame() {
+    gameInterval = setInterval(update, 1100);
+}
+
+function finishGame() {
+    clearBoard();
+    window.clearInterval(gameInterval);
+}
+
+runGame();
 
