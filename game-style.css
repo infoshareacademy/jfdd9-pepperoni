@@ -15,8 +15,8 @@
     border: 1px solid black;
     margin: 0 auto;
     position: relative;
-    background-image: url("./game_images/background.png");
-    background-size: 100% 510%;
+    background-image: url("./game_images/bg1.png");
+    background-size: 100% 100%;
 
 }
 .person {
@@ -29,7 +29,7 @@
     position: absolute;
     /*height: 15%;*/
     /*width: 6%;*/
-    background-image: url("./game_images/Wild_Gunman_sprite.png");
+    background-image: url("./game_images/cut1/GunOne1.png");
     background-size: 100% 100%;
 }
 
@@ -37,6 +37,9 @@
     position: absolute;
     /*height: 20%;*/
     /*width: 10%;*/
-    background-image: url("./game_images/19434.png");
+    background-color: crimson;
     background-size: 100% 100%;
+}
+.animation {
+
 }
