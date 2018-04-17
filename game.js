@@ -75,9 +75,7 @@ function createRandomPerson() {
 }
 
 function update() {
-
     clearBoard();
-
     recreateArrayWithSlots(personWidth);
 
     for (var i = 0; i<5; i++) {
@@ -87,11 +85,20 @@ function update() {
 }
 
 function welcomeScreen(){
-    document.querySelector('#game').innerHTML = '' +
-        '<div style="background-color: rgba(255,255,255,0.5); padding-bottom: 0; height:100%">' +
-        '<h1 style="font-size: 50px; margin-top: 0px; padding-top: 100px; margin-bottom: 0px">Game rules</h1>' +
-        '<p style="font-size: 20px">Zabij jak największą ilość nieproszonych gości. Gra kończy się po zabiciu trzech niewinnych świadków. </p>' +
-        '<button class="button-game" onclick="runGame()">Start game</button>' +
+    gameBoard.innerHTML = '' +
+        '<div>' +
+        '<h2>Try the GangBook game</h2>' +
+        '<p>Kill as many gansgters as possible.<br/>But beware! Spare the civilians! Don\'t kill more than two.</p>' +
+        '<button class="button-game" onclick="runGame()">START</button>' +
+        '</div>';
+}
+
+function gameOverScreen(){
+    gameBoard.innerHTML = '' +
+        '<div>' +
+        '<h2>GAME OVER</h2>' +
+        '<p>You killed ' + score + ' gangster(s).</p>' +
+        '<button class="button-game" onclick="runGame()">RESTART GAME</button>' +
         '</div>';
 }
 
@@ -104,8 +111,10 @@ function runGame() {
 function finishGame() {
     clearBoard();
     window.clearInterval(gameInterval);
+    gameOverScreen();
 }
 
 welcomeScreen();
 
 //TODO: welcome screen with instructions, game over screen (with points gathered & restart button, records?
+// TODO Difficulty level - client changes difficulty level - based on this parameter either increase the number of people visible on screen or increase the speed with which they appear.

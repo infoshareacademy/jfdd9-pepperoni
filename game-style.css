@@ -1,8 +1,36 @@
 body {
+    margin: 0;
+    background-color: #090909;
+    color: rgb(236, 236, 236);
     font-family: "Fanwood Text", serif;
+    font-size: 22px;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
 }
 
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-family: Quattrocento, serif;
+    padding: 0 2%;
+}
 
+h2 {
+    font-family: Quattrocento, serif;
+    font-size: 2.3rem;
+    margin-top: 0;
+    padding-top: 100px;
+    margin-bottom: 0;
+}
+
+#game div:not(.person) {
+    background-color: rgba(236,236,236,0.6);
+    padding-bottom: 0;
+    height:100%;
+}
 
 .thank-you {
     text-align: center;
@@ -12,7 +40,6 @@ body {
     width: 100vw;
     height: 70vh;
     text-align: center;
-
 }
 
 #welcome-screen{
@@ -27,12 +54,17 @@ body {
 #game {
     height: 90%;
     width: 70%;
-    border: 1px solid black;
-    margin: 0 auto;
+    margin: 2% auto;
     position: relative;
     background-image: url("./game_images/background.png");
     background-size: 100% 510%;
+    border: 1px solid #ececec;
+    color: #090909;
+    text-shadow: none;
+}
 
+#game p {
+    font-size: 1.5rem;
 }
 .person {
     bottom: 0;
