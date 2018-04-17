@@ -1,3 +1,23 @@
+body {
+    margin: 0;
+    background-color: #090909;
+    color: #ececec;
+    font-family: "Fanwood Text", serif;
+    font-size: 22px;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-family: Quattrocento, serif;
+    padding: 0 2%;
+}
+
 .thank-you {
     text-align: center;
 }
@@ -6,17 +26,16 @@
     width: 100vw;
     height: 70vh;
     text-align: center;
-
 }
 
 #game {
     height: 90%;
     width: 70%;
-    border: 1px solid black;
-    margin: 0 auto;
+    margin: 2% auto;
     position: relative;
     background-image: url("./game_images/background.png");
     background-size: 100% 510%;
+    border: 1px solid #ececec;
 
 }
 .person {
