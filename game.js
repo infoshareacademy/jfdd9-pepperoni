@@ -85,8 +85,18 @@ function update() {
 
 }
 
+function welcomeScreen(){
+    document.querySelector('#game').innerHTML = '' +
+        '<div style="background-color: rgba(255,255,255,0.5); padding-bottom: 0; height:100%">' +
+        '<h1 style="font-size: 50px; margin-top: 0; padding: 30px; margin-bottom: 0px">Game rules</h1>' +
+        '<p style="font-size: 20px">Zabij jak największą ilość nieproszonych gości. Gra kończy się po zabiciu trzech niewinnych świadków. </p>' +
+        '<button class="button-game" onclick="runGame()">Start game</button>' +
+        '</div>';
+}
+
 
 function runGame() {
+    update();
     gameInterval = setInterval(update, 1100);
 }
 
@@ -95,6 +105,6 @@ function finishGame() {
     window.clearInterval(gameInterval);
 }
 
-runGame();
+welcomeScreen();
 
 //TODO: welcome screen with instructions, game over screen (with points gathered & restart button, records?
