@@ -1,4 +1,5 @@
 var scoreSection = document.getElementById("score");
+var scoreCiviliansSection = document.getElementById("scoreCivilians");
 var gameBoard = document.getElementById("game");
 var score = 0;
 var arrayWithSlots = [];
@@ -46,9 +47,8 @@ gameBoard.addEventListener("click", function (event) {
         gameBoard.removeChild(clickedElement);
         arrayWithSlots.push(parseInt(clickedElement.style.left));
         if (clickedElement.classList.contains("gangster")) {
-            score += 100;
+            score += 1;
         } else if (clickedElement.classList.contains("civilian")) {
-            score -= 100;
             civiliansKilled += 1;
             if (civiliansKilled === 3) {
                 finishGame();
@@ -56,6 +56,7 @@ gameBoard.addEventListener("click", function (event) {
         }
     }
     scoreSection.innerText = "Score: " + score;
+    scoreCiviliansSection.innerText = "Civilians killed: " + civiliansKilled;
 });
 
 function clearBoard() {
