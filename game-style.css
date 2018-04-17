@@ -28,6 +28,15 @@ h1 {
     text-align: center;
 }
 
+#welcome-screen{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90%;
+    z-index: 1;
+    width: 70%;
+}
+
 #game {
     height: 90%;
     width: 70%;
@@ -58,4 +67,17 @@ h1 {
     /*width: 10%;*/
     background-image: url("./game_images/19434.png");
     background-size: 100% 100%;
+}
+
+.button-game {
+    height: 3rem;
+    width: 30%;
+    background-color: #E2083C;
+    border: none;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-sizing: border-box;
 }
