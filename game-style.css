@@ -56,8 +56,8 @@ h2 {
     width: 70%;
     margin: 2% auto;
     position: relative;
-    background-image: url("./game_images/background.png");
-    background-size: 100% 510%;
+    background-image: url("./game_images/bg1.png");
+    background-size: 100% 100%;
     border: 1px solid #ececec;
     color: #090909;
     text-shadow: none;
@@ -76,7 +76,7 @@ h2 {
     position: absolute;
     /*height: 15%;*/
     /*width: 6%;*/
-    background-image: url("./game_images/Wild_Gunman_sprite.png");
+    background-image: url("./game_images/cut1/GunOne1.png");
     background-size: 100% 100%;
 }
 
@@ -84,8 +84,11 @@ h2 {
     position: absolute;
     /*height: 20%;*/
     /*width: 10%;*/
-    background-image: url("./game_images/19434.png");
+    background-color: crimson;
     background-size: 100% 100%;
+}
+.animation {
+
 }
 
 .button-game {
