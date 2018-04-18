@@ -42,6 +42,18 @@ function generatePerson(personClass) {
     arrayWithSlots.splice(arrayWithSlots.indexOf(positionPerson), 1);
 }
 
+// document.querySelector('body').addEventListener("keydown", function(){  });
+
+// document.querySelector('body').addEventListener("click", function(){ goTo( returnUrl() ); });
+//
+// document.querySelector('.section-game').addEventListener("click", function(aaa){
+//     aaa.stopPropagation();
+// });
+
+// function returnUrl(){
+//     return 'index.html';
+// }
+
 gameBoard.addEventListener("click", function (event) {
     var clickedElement = event.target;
 
@@ -143,6 +155,10 @@ function runGame() {
     dif_level = document.querySelector('[name="dif-level"]:checked').value;
     update();
     gameInterval = setInterval(update, dif_level === '1' ? 1000 : 3000);
+}
+
+function goTo(url){
+    document.location.href = url;
 }
 
 function finishGame() {
