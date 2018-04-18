@@ -29,7 +29,7 @@ h2 {
 }
 
 #game div:not(.person) {
-    background-color: rgba(236,236,236,0.6);
+    background-color: rgba(236,236,236,0.7);
     padding-bottom: 0;
     height:100%;
 }
@@ -100,7 +100,7 @@ h2 {
     font-family: 'Press Start 2P', cursive;
     height: 3rem;
     min-width: 40%;
-    background-color: #E2083C;
+    background-color: #781e13;
     border: none;
     color: #fff;
     font-weight: bolder;
@@ -109,3 +109,7 @@ h2 {
     cursor: pointer;
     box-sizing: border-box;
 }
+
+/* input[type="radio"]{
+    display: none;
+} */

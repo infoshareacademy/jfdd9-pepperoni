@@ -49,9 +49,8 @@ gameBoard.addEventListener("click", function (event) {
         return;
     }
 
-    clickedElement.classList.add('dead');
-
     if (clickedElement.classList.contains("person")) {
+        clickedElement.classList.add('dead');
         if (clickedElement.classList.contains("gangster")) {
             score += 1;
         } else if (clickedElement.classList.contains("civilian")) {
@@ -79,7 +78,7 @@ gameBoard.addEventListener("click", function (event) {
             arrayWithSlots.push(parseInt(clickedElement.style.left));
         }
 
-    }, 80);
+    }, 40);
 
     }
     scoreSection.innerText = "Score: " + score;
