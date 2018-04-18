@@ -4,7 +4,7 @@ var gameBoard = document.getElementById("game");
 var score = 0;
 var arrayWithSlots = [];
 var positionPerson;
-var personWidth = 40;
+var personWidth = 80;
 var civilianProbability = 0.4;
 var gameInterval;
 var civiliansKilled = 0;
@@ -63,11 +63,13 @@ gameBoard.addEventListener("click", function (event) {
 
     var animInterval = setInterval(function () {
         if (clickedElement.classList.contains("gangster")) {
+
         clickedElement.style.backgroundImage = 'url("./game_images/cut1/GunOne' + (animateIterator++) + '.png")';
         }
 
-        if (clickedElement.classList.contains("civilian")) {
-            clickedElement.style.backgroundImage = 'url("./game_images/cut1/GunOne' + (animateIterator++) + '.png")';
+        else if (clickedElement.classList.contains("civilian")) {
+            clickedElement.style.backgroundImage = 'url("./game_images/civ/cyvil-' + (animateIterator++) + '.png")';
+
         }
 
        if (animateIterator === 8) {
@@ -77,7 +79,7 @@ gameBoard.addEventListener("click", function (event) {
             arrayWithSlots.push(parseInt(clickedElement.style.left));
         }
 
-    }, 50);
+    }, 80);
 
     }
     scoreSection.innerText = "Score: " + score;
