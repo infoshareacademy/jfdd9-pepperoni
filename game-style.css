@@ -103,4 +103,5 @@ h2 {
     margin-top: 1rem;
     cursor: pointer;
     box-sizing: border-box;
+    border: solid black 1px;
 }
