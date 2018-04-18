@@ -9,6 +9,7 @@ var civilianProbability = 0.4;
 var gameInterval;
 var civiliansKilled = 0;
 var animateIterator = 1;
+var dif_level = 0; // 0 - novice, 1 - brutal
 
 //Creating array of available pixel slots. The function accepts person's width as an argument.
 var boardGameWidth = gameBoard.offsetWidth;
@@ -101,11 +102,8 @@ function createRandomPerson() {
 }
 
 function update() {
-
     clearBoard();
-
     recreateArrayWithSlots(personWidth);
-
     for (var i = 0; i<5; i++) {
         createRandomPerson();
     }
@@ -117,6 +115,10 @@ function welcomeScreen(){
         '<div>' +
         '<h2>Try the GangBook game</h2>' +
         '<p>Kill as many gansgters as possible.<br/>But beware! Spare the civilians! Don\'t kill more than two.</p>' +
+        '<section>'+
+        '<label>Novice <input type="radio" name="dif-level" value="0" checked /></label>' +
+        '<label>Brutal <input type="radio" name="dif-level" value="1" /></label>' +
+        '</section>'+
         '<button class="button-game" onclick="runGame()">START</button>' +
         '</div>';
 }
@@ -126,20 +128,32 @@ function gameOverScreen(){
         '<div>' +
         '<h2>GAME OVER</h2>' +
         '<p>You killed ' + score + ' gangster(s).</p>' +
+        '<p>But you also killed 3 civilians.</p>' +
+        '<section>'+
+        '<label>Novice <input type="radio" name="dif-level" value="0" checked /></label>' +
+        '<label>Brutal <input type="radio" name="dif-level" value="1" /></label>' +
+        '</section>'+
         '<button class="button-game" onclick="runGame()">RESTART GAME</button>' +
         '</div>';
 }
 
 
 function runGame() {
+    dif_level = document.querySelector('[name="dif-level"]:checked').value;
+    resetScores();
     update();
-    gameInterval = setInterval(update, 5000);
+    gameInterval = setInterval(update, dif_level === '1' ? 1000 : 3000);
 }
 
 function finishGame() {
     clearBoard();
     window.clearInterval(gameInterval);
     gameOverScreen();
+}
+
+function resetScores() {
+    score = 0;
+    civiliansKilled = 0;
 }
 
 welcomeScreen();
