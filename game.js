@@ -129,6 +129,7 @@ function gameOverScreen(){
         '<div>' +
         '<h2>GAME OVER</h2>' +
         '<p>You killed ' + score + ' gangster(s).</p>' +
+        '<p>But you also killed 3 civilians.</p>'
         '<button class="button-game" onclick="runGame()">RESTART GAME</button>' +
         '</div>';
 }
