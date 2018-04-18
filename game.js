@@ -11,6 +11,7 @@ var civiliansKilled = 0;
 var animateIterator = 1;
 var dif_level = 0; // 0 - novice, 1 - brutal
 
+
 //Creating array of available pixel slots. The function accepts person's width as an argument.
 var boardGameWidth = gameBoard.offsetWidth;
 
@@ -152,6 +153,7 @@ function finishGame() {
 }
 
 welcomeScreen();
+
 
 //TODO: welcome screen with instructions, game over screen (with points gathered & restart button, records?
 // TODO Difficulty level - client changes difficulty level - based on this parameter either increase the number of people visible on screen or increase the speed with which they appear.
