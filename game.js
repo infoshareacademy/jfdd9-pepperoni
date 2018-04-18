@@ -100,11 +100,8 @@ function createRandomPerson() {
 }
 
 function update() {
-
     clearBoard();
-
     recreateArrayWithSlots(personWidth);
-
     for (var i = 0; i<5; i++) {
         createRandomPerson();
     }
@@ -141,6 +138,7 @@ function gameOverScreen(){
 
 function runGame() {
     dif_level = document.querySelector('[name="dif-level"]:checked').value;
+    resetScores();
     update();
     gameInterval = setInterval(update, dif_level === '1' ? 1000 : 3000);
 }
@@ -149,6 +147,11 @@ function finishGame() {
     clearBoard();
     window.clearInterval(gameInterval);
     gameOverScreen();
+}
+
+function resetScores() {
+    score = 0;
+    civiliansKilled = 0;
 }
 
 welcomeScreen();
