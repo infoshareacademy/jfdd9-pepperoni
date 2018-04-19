@@ -51,9 +51,8 @@ gameBoard.addEventListener("click", function (event) {
         return;
     }
 
-    clickedElement.classList.add('dead');
-
     if (clickedElement.classList.contains("person")) {
+        clickedElement.classList.add('dead');
         if (clickedElement.classList.contains("gangster")) {
             score += 1;
         } else if (clickedElement.classList.contains("civilian")) {
@@ -64,13 +63,9 @@ gameBoard.addEventListener("click", function (event) {
         }
 
     var animInterval = setInterval(function () {
-        if (clickedElement.classList.contains("gangster") && (randomNum === 1)) {
+        if (clickedElement.classList.contains("gangster")) {
 
         clickedElement.style.backgroundImage = 'url("./game_images/cut1/GunOne' + (animateIterator++) + '.png")';
-        }
-        if (clickedElement.classList.contains("gangster") && (randomNum === 2)) {
-
-            clickedElement.style.backgroundImage = 'url("./game_images/cut2/GunTwo' + (animateIterator++) + '.png")';
         }
 
         else if (clickedElement.classList.contains("civilian")) {
@@ -85,7 +80,7 @@ gameBoard.addEventListener("click", function (event) {
             arrayWithSlots.push(parseInt(clickedElement.style.left));
         }
 
-    }, 110);
+    }, 40);
 
     }
     scoreSection.innerText = "Score: " + score;
