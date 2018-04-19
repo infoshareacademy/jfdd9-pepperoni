@@ -71,20 +71,21 @@ function generatePerson(personClass) {
 
     arrayWithSlots.splice(arrayWithSlots.indexOf(positionPerson), 1);
 }
-
-gameBoard.addEventListener("mousedown", function (event) {
+function shoot(event) {
     var clickedElement = event.target;
-    if (clickedElement.classList.contains('dead')) {
-        return;
-    }
 
     if (ammunition === 0) {
         // reload();
         return
     }
 
+    removeBullet();
+
+    if (clickedElement.classList.contains('dead')) {
+        return;
+    }
+
     if (clickedElement.classList.contains("person")) {
-        removeBullet();
         clickedElement.classList.add('dead');
         if (clickedElement.classList.contains("gangster")) {
             score += 1;
@@ -96,37 +97,39 @@ gameBoard.addEventListener("mousedown", function (event) {
             }
         }
 
-    var animInterval = setInterval(function () {
-        if (clickedElement.classList.contains("gangster")) {
+        var animInterval = setInterval(function () {
+            if (clickedElement.classList.contains("gangster")) {
 
-        clickedElement.style.backgroundImage = 'url("./game_images/cut1/GunOne' + (animateIterator++) + '.png")';
-        }
+                clickedElement.style.backgroundImage = 'url("./game_images/cut1/GunOne' + (animateIterator++) + '.png")';
+            }
 
-        else if (clickedElement.classList.contains("civilian")) {
-            clickedElement.style.backgroundImage = 'url("./game_images/civ/cyvil-' + (animateIterator++) + '.png")';
+            else if (clickedElement.classList.contains("civilian")) {
+                clickedElement.style.backgroundImage = 'url("./game_images/civ/cyvil-' + (animateIterator++) + '.png")';
+            }
 
-        }
+            if (animateIterator === 5) {
+                animateIterator = 1;
+                clearInterval(animInterval);
+                if (gameBoard.contains(clickedElement)) {
+                    gameBoard.removeChild(clickedElement);
+                }
+                arrayWithSlots.push(parseInt(clickedElement.style.left));
+            }
 
-       if (animateIterator === 5) {
-            animateIterator = 1;
-            clearInterval(animInterval);
-            gameBoard.removeChild(clickedElement);
-            arrayWithSlots.push(parseInt(clickedElement.style.left));
-        }
-
-    }, 40);
+        }, 40);
 
     }
     scoreSection.innerText = "Score: " + score;
     scoreCiviliansSection.innerText = "Civilians killed: " + civiliansKilled;
-});
+}
+
+
 
 function clearBoard() {
     while (gameBoard.firstChild) {
         gameBoard.removeChild(gameBoard.firstChild);
     }
 }
-
 
 function createRandomPerson() {
     if (Math.random() > civilianProbability) {
@@ -142,9 +145,7 @@ function update() {
     for (var i = 0; i<5; i++) {
         createRandomPerson();
     }
-
 }
-
 
 function welcomeScreen(){
     gameBoard.innerHTML = '' +
@@ -173,9 +174,9 @@ function gameOverScreen(){
         '</div>';
 }
 
-
 function runGame() {
     dif_level = document.querySelector('[name="dif-level"]:checked').value;
+    gameBoard.addEventListener("mousedown", shoot);
     resetScores();
     update();
     reload();
@@ -183,6 +184,7 @@ function runGame() {
 }
 
 function finishGame() {
+    gameBoard.removeEventListener("mousedown", shoot);
     ammo.forEach(function(bullet){
             bullet.classList.remove("opaque");
             bullet.classList.add("transparent")
