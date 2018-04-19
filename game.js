@@ -64,9 +64,13 @@ gameBoard.addEventListener("click", function (event) {
         }
 
     var animInterval = setInterval(function () {
-        if (clickedElement.classList.contains("gangster")) {
+        if (clickedElement.classList.contains("gangster") && (randomNum === 1)) {
 
         clickedElement.style.backgroundImage = 'url("./game_images/cut1/GunOne' + (animateIterator++) + '.png")';
+        }
+        if (clickedElement.classList.contains("gangster") && (randomNum === 2)) {
+
+            clickedElement.style.backgroundImage = 'url("./game_images/cut2/GunTwo' + (animateIterator++) + '.png")';
         }
 
         else if (clickedElement.classList.contains("civilian")) {
@@ -74,14 +78,14 @@ gameBoard.addEventListener("click", function (event) {
 
         }
 
-       if (animateIterator === 8) {
+       if (animateIterator === 10) {
             animateIterator = 1;
             clearInterval(animInterval);
             gameBoard.removeChild(clickedElement);
             arrayWithSlots.push(parseInt(clickedElement.style.left));
         }
 
-    }, 80);
+    }, 110);
 
     }
     scoreSection.innerText = "Score: " + score;
