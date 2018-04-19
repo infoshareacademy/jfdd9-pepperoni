@@ -111,18 +111,31 @@ h2 {
 }
 
 #weapon{
-    margin-bottom: -100px;
     position: relative;
+    margin: 0;
+    padding: 0;
     z-index: 100;
 }
+
 #weapon div{
     background-image: url("./game_images/ammunition-50.png");
+    margin-bottom: -100px;
     width: 16px;
     height: 50px;
     display: inline-block;
 }
 
-/* input[type="radio"]{
+.transparent {
+    opacity: 0.2;
+}
+
+.opaque {
+    opacity: 1;
+}
+
+input[type="radio"]{
+    display: none;
+}
 
 .container {
     position: relative;
@@ -213,11 +226,6 @@ h2 {
         width: 100vw;
         margin: 1% auto;
         position: relative;
-        background-image: url("./game_images/bg1.png");
-        background-size: 100% 100%;
-        border: 1px solid #ececec;
-        color: #090909;
-        text-shadow: none;
     }
 }
 

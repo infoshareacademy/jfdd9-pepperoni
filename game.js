@@ -11,30 +11,37 @@ var civiliansKilled = 0;
 var animateIterator = 1;
 var dif_level = 0; // 0 - novice, 1 - brutal
 var randomNum = Math.floor((Math.random() * 4) +1 );
-
+var ammoHTML = document.getElementsByClassName("ammo");
+var ammo = Array.prototype.slice.call(ammoHTML);
+var ammunition = 5;
 
 //Creating array of available pixel slots. The function accepts person's width as an argument.
 var boardGameWidth = gameBoard.offsetWidth;
 
 function reload() {
-    var weapon = document.getElementById('weapon');
+    ammunition = 5;
+    ammo.forEach(function(bullet){
+        if (bullet.classList.contains("transparent")) {
+            bullet.classList.remove("transparent");
+            bullet.classList.add("opaque")
+        }
+    })
+}
 
-
-    for (var i=0; i < 6; i++){
-
-        var div = document.createElement('div');
-        div.classList.add('ammo');
-        weapon.appendChild(div);
+function removeBullet() {
+    ammo[ammunition-1].classList.remove("opaque");
+    ammo[ammunition-1].classList.add("transparent");
+    if (ammunition > 0) {
+        ammunition = ammunition-1;
     }
-
 }
 
 window.addEventListener('keydown', function (event) {
-console.log(event.code)
+console.log(event.code);
     if (event.code === 'KeyR') {
     reload();
     }
-})
+});
 
 
 function findSlots(personWidth) {
@@ -65,20 +72,19 @@ function generatePerson(personClass) {
     arrayWithSlots.splice(arrayWithSlots.indexOf(positionPerson), 1);
 }
 
-gameBoard.addEventListener("click", function (event) {
+gameBoard.addEventListener("mousedown", function (event) {
     var clickedElement = event.target;
-
     if (clickedElement.classList.contains('dead')) {
         return;
     }
 
-    if (!weapon.firstChild) {
+    if (ammunition === 0) {
         // reload();
         return
     }
-    weapon.removeChild(weapon.firstChild);
 
     if (clickedElement.classList.contains("person")) {
+        removeBullet();
         clickedElement.classList.add('dead');
         if (clickedElement.classList.contains("gangster")) {
             score += 1;
@@ -86,6 +92,7 @@ gameBoard.addEventListener("click", function (event) {
             civiliansKilled += 1;
             if (civiliansKilled === 3) {
                 finishGame();
+                return;
             }
         }
 
@@ -100,7 +107,7 @@ gameBoard.addEventListener("click", function (event) {
 
         }
 
-       if (animateIterator === 10) {
+       if (animateIterator === 5) {
             animateIterator = 1;
             clearInterval(animInterval);
             gameBoard.removeChild(clickedElement);
@@ -176,6 +183,10 @@ function runGame() {
 }
 
 function finishGame() {
+    ammo.forEach(function(bullet){
+            bullet.classList.remove("opaque");
+            bullet.classList.add("transparent")
+    });
     clearBoard();
     window.clearInterval(gameInterval);
     gameOverScreen();
