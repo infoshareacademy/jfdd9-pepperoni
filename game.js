@@ -10,6 +10,8 @@ var gameInterval;
 var civiliansKilled = 0;
 var animateIterator = 1;
 var dif_level = 0; // 0 - novice, 1 - brutal
+var randomNum = Math.floor((Math.random() * 4) +1 );
+
 
 //Creating array of available pixel slots. The function accepts person's width as an argument.
 var boardGameWidth = gameBoard.offsetWidth;
@@ -95,7 +97,7 @@ function clearBoard() {
 
 function createRandomPerson() {
     if (Math.random() > civilianProbability) {
-        generatePerson("gangster")
+        generatePerson("gangster") //&& randomNum <= 4;
     } else {
         generatePerson('civilian')
     }
