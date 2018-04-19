@@ -14,6 +14,27 @@ var dif_level = 0; // 0 - novice, 1 - brutal
 //Creating array of available pixel slots. The function accepts person's width as an argument.
 var boardGameWidth = gameBoard.offsetWidth;
 
+function reload() {
+    var weapon = document.getElementById('weapon');
+
+
+    for (var i=0; i < 6; i++){
+
+        var div = document.createElement('div');
+        div.classList.add('ammo');
+        weapon.appendChild(div);
+    }
+
+}
+
+window.addEventListener('keydown', function (event) {
+console.log(event.code)
+    if (event.code === 'KeyR') {
+    reload();
+    }
+})
+
+
 function findSlots(personWidth) {
     return boardGameWidth / personWidth;
 }
@@ -48,6 +69,12 @@ gameBoard.addEventListener("click", function (event) {
     if (clickedElement.classList.contains('dead')) {
         return;
     }
+
+    if (!weapon.firstChild) {
+        // reload();
+        return
+    }
+    weapon.removeChild(weapon.firstChild);
 
     if (clickedElement.classList.contains("person")) {
         clickedElement.classList.add('dead');
@@ -109,6 +136,7 @@ function update() {
 
 }
 
+
 function welcomeScreen(){
     gameBoard.innerHTML = '' +
         '<div>' +
@@ -141,6 +169,7 @@ function runGame() {
     dif_level = document.querySelector('[name="dif-level"]:checked').value;
     resetScores();
     update();
+    reload();
     gameInterval = setInterval(update, dif_level === '1' ? 1000 : 3000);
 }
 
