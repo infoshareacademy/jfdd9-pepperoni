@@ -115,8 +115,8 @@ function welcomeScreen(){
         '<h2>Try the GangBook game</h2>' +
         '<p>Kill as many gansgters as possible.<br/>But beware! Spare the civilians! Don\'t kill more than two.</p>' +
         '<section>'+
-        '<label>Novice <input type="radio" name="dif-level" value="0" checked /></label>' +
-        '<label>Brutal <input type="radio" name="dif-level" value="1" /></label>' +
+        '<label class="container">Novice <input type="radio" name="dif-level" value="0" checked /><span class="checkmark"></span></label>' +
+        '<label class="container">Brutal <input type="radio" name="dif-level" value="1" /><span class="checkmark"></span></label>' +
         '</section>'+
         '<button class="button-game" onclick="runGame()">START</button>' +
         '</div>';
@@ -129,8 +129,8 @@ function gameOverScreen(){
         '<p>You killed ' + score + ' gangster(s).</p>' +
         '<p>But you also killed 3 civilians.</p>' +
         '<section>'+
-        '<label>Novice <input type="radio" name="dif-level" value="0" checked /></label>' +
-        '<label>Brutal <input type="radio" name="dif-level" value="1" /></label>' +
+        '<label class="container">Novice <input type="radio" name="dif-level" value="0" checked /><span class="checkmark"></label>' +
+        '<label class="container">Brutal <input type="radio" name="dif-level" value="1" /><span class="checkmark"></label>' +
         '</section>'+
         '<button class="button-game" onclick="runGame()">RESTART GAME</button>' +
         '</div>';
