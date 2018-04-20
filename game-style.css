@@ -108,6 +108,11 @@ h2 {
     margin-top: 1rem;
     cursor: pointer;
     box-sizing: border-box;
+    border: solid black 1px;
+}
+.goback {
+    text-decoration: none;
+    color: rgb(236, 236, 236);
 }
 
 #weapon-and-life{
