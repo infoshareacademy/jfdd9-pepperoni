@@ -186,6 +186,8 @@ function welcomeScreen() {
         '<label class="container">Brutal <input type="radio" name="dif-level" value="1" /><span class="checkmark"></span></label>' +
         '</section>' +
         '<button class="button-game" onclick="runGame()">START</button>' +
+        '<p>To reload, press R</p>' +
+        '<p>Note: Civilian is the skinny guy in white shirt and jeans</p>' +
         '</div>';
 }
 
