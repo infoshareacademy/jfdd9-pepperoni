@@ -77,11 +77,32 @@ h2 {
     width: 80px;
 }
 
-.gangster {
+.gangster1 {
     position: absolute;
     /*height: 15%;*/
     /*width: 6%;*/
     background-image: url("./game_images/cut1/GunOne1.png");
+    background-size: 100% 100%;
+}
+.gangster2 {
+    position: absolute;
+    /*height: 15%;*/
+    /*width: 6%;*/
+    background-image: url("./game_images/cut2/GunTwo1.png");
+    background-size: 100% 100%;
+}
+.gangster3 {
+    position: absolute;
+    /*height: 15%;*/
+    /*width: 6%;*/
+    background-image: url("./game_images/cut3/GunThree1.png");
+    background-size: 100% 100%;
+}
+.gangster4 {
+    position: absolute;
+    /*height: 15%;*/
+    /*width: 6%;*/
+    background-image: url("./game_images/cut4/GunFour1.png");
     background-size: 100% 100%;
 }
 
@@ -108,6 +129,11 @@ h2 {
     margin-top: 1rem;
     cursor: pointer;
     box-sizing: border-box;
+    border: solid black 1px;
+}
+.goback {
+    text-decoration: none;
+    color: rgb(236, 236, 236);
 }
 
 #weapon-and-life{
