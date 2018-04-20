@@ -4,15 +4,45 @@ var gameBoard = document.getElementById("game");
 var score = 0;
 var arrayWithSlots = [];
 var positionPerson;
-var personWidth = 40;
+var personWidth = 80;
 var civilianProbability = 0.4;
 var gameInterval;
 var civiliansKilled = 0;
 var animateIterator = 1;
 var dif_level = 0; // 0 - novice, 1 - brutal
+var randomNum = Math.floor((Math.random() * 4) +1 );
+var ammoHTML = document.getElementsByClassName("ammo");
+var ammo = Array.prototype.slice.call(ammoHTML);
+var ammunition = 5;
 
 //Creating array of available pixel slots. The function accepts person's width as an argument.
 var boardGameWidth = gameBoard.offsetWidth;
+
+function reload() {
+    ammunition = 5;
+    ammo.forEach(function(bullet){
+        if (bullet.classList.contains("transparent")) {
+            bullet.classList.remove("transparent");
+            bullet.classList.add("opaque")
+        }
+    })
+}
+
+function removeBullet() {
+    ammo[ammunition-1].classList.remove("opaque");
+    ammo[ammunition-1].classList.add("transparent");
+    if (ammunition > 0) {
+        ammunition = ammunition-1;
+    }
+}
+
+window.addEventListener('keydown', function (event) {
+console.log(event.code);
+    if (event.code === 'KeyR') {
+    reload();
+    }
+});
+
 
 function findSlots(personWidth) {
     return boardGameWidth / personWidth;
@@ -41,60 +71,59 @@ function generatePerson(personClass) {
 
     arrayWithSlots.splice(arrayWithSlots.indexOf(positionPerson), 1);
 }
-
-// document.querySelector('body').addEventListener("keydown", function(){  });
-
-// document.querySelector('body').addEventListener("click", function(){ goTo( returnUrl() ); });
-//
-// document.querySelector('.section-game').addEventListener("click", function(aaa){
-//     aaa.stopPropagation();
-// });
-
-// function returnUrl(){
-//     return 'index.html';
-// }
-
-gameBoard.addEventListener("click", function (event) {
+function shoot(event) {
     var clickedElement = event.target;
+
+    if (ammunition === 0) {
+        // reload();
+        return
+    }
+
+    removeBullet();
 
     if (clickedElement.classList.contains('dead')) {
         return;
     }
 
-    clickedElement.classList.add('dead');
-
     if (clickedElement.classList.contains("person")) {
+        clickedElement.classList.add('dead');
         if (clickedElement.classList.contains("gangster")) {
             score += 1;
         } else if (clickedElement.classList.contains("civilian")) {
             civiliansKilled += 1;
             if (civiliansKilled === 3) {
                 finishGame();
+                return;
             }
         }
 
-    var animInterval = setInterval(function () {
-        if (clickedElement.classList.contains("gangster")) {
-        clickedElement.style.backgroundImage = 'url("./game_images/cut1/GunOne' + (animateIterator++) + '.png")';
-        }
+        var animInterval = setInterval(function () {
+            if (clickedElement.classList.contains("gangster")) {
 
-        if (clickedElement.classList.contains("civilian")) {
-            clickedElement.style.backgroundImage = 'url("./game_images/cut1/GunOne' + (animateIterator++) + '.png")';
-        }
+                clickedElement.style.backgroundImage = 'url("./game_images/cut1/GunOne' + (animateIterator++) + '.png")';
+            }
 
-       if (animateIterator === 8) {
-            animateIterator = 1;
-            clearInterval(animInterval);
-            gameBoard.removeChild(clickedElement);
-            arrayWithSlots.push(parseInt(clickedElement.style.left));
-        }
+            else if (clickedElement.classList.contains("civilian")) {
+                clickedElement.style.backgroundImage = 'url("./game_images/civ/cyvil-' + (animateIterator++) + '.png")';
+            }
 
-    }, 50);
+            if (animateIterator === 5) {
+                animateIterator = 1;
+                clearInterval(animInterval);
+                if (gameBoard.contains(clickedElement)) {
+                    gameBoard.removeChild(clickedElement);
+                }
+                arrayWithSlots.push(parseInt(clickedElement.style.left));
+            }
+
+        }, 40);
 
     }
     scoreSection.innerText = "Score: " + score;
     scoreCiviliansSection.innerText = "Civilians killed: " + civiliansKilled;
-});
+}
+
+
 
 function clearBoard() {
     while (gameBoard.firstChild) {
@@ -102,25 +131,20 @@ function clearBoard() {
     }
 }
 
-
 function createRandomPerson() {
     if (Math.random() > civilianProbability) {
-        generatePerson("gangster")
+        generatePerson("gangster") //&& randomNum <= 4;
     } else {
         generatePerson('civilian')
     }
 }
 
 function update() {
-
     clearBoard();
-
     recreateArrayWithSlots(personWidth);
-
     for (var i = 0; i<5; i++) {
         createRandomPerson();
     }
-
 }
 
 function welcomeScreen(){
@@ -129,8 +153,8 @@ function welcomeScreen(){
         '<h2>Try the GangBook game</h2>' +
         '<p>Kill as many gansgters as possible.<br/>But beware! Spare the civilians! Don\'t kill more than two.</p>' +
         '<section>'+
-        '<label>Novice <input type="radio" name="dif-level" value="0" checked /></label>' +
-        '<label>Brutal <input type="radio" name="dif-level" value="1" /></label>' +
+        '<label class="container">Novice <input type="radio" name="dif-level" value="0" checked /><span class="checkmark"></span></label>' +
+        '<label class="container">Brutal <input type="radio" name="dif-level" value="1" /><span class="checkmark"></span></label>' +
         '</section>'+
         '<button class="button-game" onclick="runGame()">START</button>' +
         '</div>';
@@ -143,28 +167,36 @@ function gameOverScreen(){
         '<p>You killed ' + score + ' gangster(s).</p>' +
         '<p>But you also killed 3 civilians.</p>' +
         '<section>'+
-        '<label>Novice <input type="radio" name="dif-level" value="0" checked /></label>' +
-        '<label>Brutal <input type="radio" name="dif-level" value="1" /></label>' +
+        '<label class="container">Novice <input type="radio" name="dif-level" value="0" checked /><span class="checkmark"></label>' +
+        '<label class="container">Brutal <input type="radio" name="dif-level" value="1" /><span class="checkmark"></label>' +
         '</section>'+
         '<button class="button-game" onclick="runGame()">RESTART GAME</button>' +
         '</div>';
 }
 
-
 function runGame() {
     dif_level = document.querySelector('[name="dif-level"]:checked').value;
+    gameBoard.addEventListener("mousedown", shoot);
+    resetScores();
     update();
+    reload();
     gameInterval = setInterval(update, dif_level === '1' ? 1000 : 3000);
 }
 
-function goTo(url){
-    document.location.href = url;
-}
-
 function finishGame() {
+    gameBoard.removeEventListener("mousedown", shoot);
+    ammo.forEach(function(bullet){
+            bullet.classList.remove("opaque");
+            bullet.classList.add("transparent")
+    });
     clearBoard();
     window.clearInterval(gameInterval);
     gameOverScreen();
+}
+
+function resetScores() {
+    score = 0;
+    civiliansKilled = 0;
 }
 
 welcomeScreen();
