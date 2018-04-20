@@ -2,6 +2,7 @@ var buttonNode = document.getElementById('subscribe');
 
 var elementsToAnimate = document.getElementsByClassName("feature-description");
 var arrayToAnimate = [].slice.call(elementsToAnimate);
+var secretKeys = [];
 
 
 //Function to check if an element is in viewport. As an argument, pass the id of the element you want to check.
@@ -85,3 +86,19 @@ window.addEventListener('scroll', function (event) {
     })
 
 });
+
+window.addEventListener('keydown', function(event){
+    if (event.code==='KeyG' || event.code==='KeyA' || event.code==='KeyN') {
+        secretKeys.push(event.code.replace("Key", ""));
+    }
+
+    if (secretKeys.length===4){
+        if ("GANG" === secretKeys.join("")){
+            window.location.replace("game.html");
+        }
+    }
+
+    if(event.code==="KeyG" && secretKeys.length > 2){
+        secretKeys = ['G'];
+    }
+})
