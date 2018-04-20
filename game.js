@@ -10,6 +10,7 @@ var gameInterval;
 var civiliansKilled = 0;
 var animateIterator = 1;
 var dif_level = 0; // 0 - novice, 1 - brutal
+var randomNum = Math.floor((Math.random() * 4) +1 );
 var ammoHTML = document.getElementsByClassName("ammo");
 var ammo = Array.prototype.slice.call(ammoHTML);
 var ammunition = 5;
@@ -38,11 +39,17 @@ function removeBullet() {
 }
 
 window.addEventListener('keydown', function (event) {
-    console.log(event.code);
     if (event.code === 'KeyR') {
         reload();
     }
 });
+
+ammo.forEach(function (singleAmmo) {
+    singleAmmo.addEventListener('click', function (event) {
+        reload();
+    });
+})
+
 
 
 function findSlots(personWidth) {
@@ -143,6 +150,7 @@ function shoot(event) {
     scoreSection.innerText = "Score: " + score;
     scoreCiviliansSection.innerText = "Civilians killed: " + civiliansKilled;
 }
+
 
 
 function clearBoard() {
