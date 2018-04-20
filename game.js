@@ -37,11 +37,17 @@ function removeBullet() {
 }
 
 window.addEventListener('keydown', function (event) {
-console.log(event.code);
     if (event.code === 'KeyR') {
     reload();
     }
 });
+
+ammo.forEach(function (singleAmmo) {
+    singleAmmo.addEventListener('click', function (event) {
+        reload();
+    });
+})
+
 
 
 function findSlots(personWidth) {
