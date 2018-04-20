@@ -4,21 +4,42 @@ var gameBoard = document.getElementById("game");
 var score = 0;
 var arrayWithSlots = [];
 var positionPerson;
-var personWidth = 80;
+var personWidth;
 var civilianProbability = 0.4;
 var gameInterval;
 var civiliansKilled = 0;
-var animateIterator = 1;
 var dif_level = 0; // 0 - novice, 1 - brutal
 var randomNum = Math.floor((Math.random() * 4) +1 );
 var ammoHTML = document.getElementsByClassName("ammo");
 var ammo = Array.prototype.slice.call(ammoHTML);
 var ammunition = 5;
+var lifeHTML = document.getElementsByClassName("heart");
+var life = Array.prototype.slice.call(lifeHTML);
+var lifeLeft = 5;
+var mainNormalInterval = 3000;
+var mainHardInterval = 1500;
+var mainChosenInterval;
+var gunshot = document.getElementById('gunshot');
+var noAmmo = document.getElementById('noAmmo');
+
 var classes = ["gangster1", "gangster2", "gangster3", "gangster4"];
+
+var mediaQuery = window.matchMedia("(max-width: 609px)");
+if (mediaQuery.matches) {
+    personWidth = 40;
+} else {
+    personWidth = 80;
+}
 
 
 //Creating array of available pixel slots. The function accepts person's width as an argument.
 var boardGameWidth = gameBoard.offsetWidth;
+
+
+function playAudio (sound) {
+    sound.currentTime = 0;
+    sound.play();
+}
 
 function reload() {
     ammunition = 5;
@@ -48,7 +69,7 @@ ammo.forEach(function (singleAmmo) {
     singleAmmo.addEventListener('click', function (event) {
         reload();
     });
-})
+});
 
 
 
@@ -62,7 +83,6 @@ function recreateArrayWithSlots(personWidth) {
     });
 }
 
-////
 
 function generatePerson(personClass) {
     if (arrayWithSlots.length === 0) {
@@ -81,16 +101,52 @@ function generatePerson(personClass) {
     arrayWithSlots.splice(arrayWithSlots.indexOf(positionPerson), 1);
 }
 
+
+
+function killerGangsters() {
+    var gangstersHTML = document.getElementsByClassName('person');
+    var gangsters = Array.prototype.slice.call(gangstersHTML);
+    gangsters.forEach(function(gangster){
+        if (lifeLeft > 0){
+            if (gangster.classList.contains('gangster3')) {
+                life[lifeLeft - 1].classList.remove("opaque");
+                life[lifeLeft - 1].classList.add("transparent");
+                lifeLeft = lifeLeft - 1;
+            }
+        }
+    });
+}
+
+function animateKillers() {
+    console.log(mainChosenInterval);
+    var gangstersHTML = document.getElementsByClassName('person');
+    var gangsters = Array.prototype.slice.call(gangstersHTML);
+    gangsters.forEach(function(gangster) {
+        if (gangster.classList.contains('gangster3')) {
+            setTimeout(function() {
+                var killerIterator = 1;
+                var killerAnimator = setInterval(function() {
+                    playAudio(gunshot);
+                    gangster.style.backgroundImage = 'url("./game_images/cut3/GunThree' + (killerIterator++) + '.png")';
+                    if (killerIterator === 5) {
+                        killerIterator = 1;
+                        clearInterval(killerAnimator);
+                    }
+              }, 100)
+            }, mainChosenInterval-700)
+        }})
+}
+
+
 function shoot(event) {
     var clickedElement = event.target;
 
-    if (ammunition === 0) {
-        // reload();
+    if (ammunition < 1) {
+        playAudio(noAmmo);
         return
     }
-
     removeBullet();
-
+    playAudio(gunshot);
     if (clickedElement.classList.contains('dead')) {
         return;
     }
@@ -105,6 +161,7 @@ function shoot(event) {
             score += 1;
         } else if (clickedElement.classList.contains("civilian")) {
             civiliansKilled += 1;
+            scoreCiviliansSection.innerText = "Civilians killed: " + civiliansKilled;
             if (civiliansKilled === 3) {
                 finishGame();
                 return;
@@ -152,7 +209,6 @@ function shoot(event) {
 }
 
 
-
 function clearBoard() {
     while (gameBoard.firstChild) {
         gameBoard.removeChild(gameBoard.firstChild);
@@ -169,25 +225,31 @@ function createRandomPerson() {
 }
 
 function update() {
+    killerGangsters();
+    if (lifeLeft === 0){
+        finishGame();
+        return;
+    }
     clearBoard();
     recreateArrayWithSlots(personWidth);
     for (var i = 0; i < 5; i++) {
         createRandomPerson();
     }
+    animateKillers();
 }
 
 function welcomeScreen() {
     gameBoard.innerHTML = '' +
         '<div>' +
         '<h2>Try the GangBook game</h2>' +
-        '<p>Kill as many gansgters as possible.<br/>But beware! Spare the civilians! Don\'t kill more than two.</p>' +
+        '<p>Kill as many gangsters as possible. Shoot men in black before they shoot you.<br/>Spare the civilians! Don\'t kill more than two.</p>' +
         '<section>' +
         '<label class="container">Novice <input type="radio" name="dif-level" value="0" checked /><span class="checkmark"></span></label>' +
         '<label class="container">Brutal <input type="radio" name="dif-level" value="1" /><span class="checkmark"></span></label>' +
         '</section>' +
         '<button class="button-game" onclick="runGame()">START</button>' +
         '<p>To reload, press R</p>' +
-        '<p>Note: Civilian is the skinny guy in white shirt and jeans</p>' +
+        '<p class="welcomeScreenPar">This guy is a civilian<img class="welcomeScreenImg" src="./game_images/civ/cyvil-1.png"/></p>' +
         '</div>';
 }
 
@@ -206,16 +268,27 @@ function gameOverScreen() {
 }
 
 function runGame() {
+    lifeLeft = 5;
     dif_level = document.querySelector('[name="dif-level"]:checked').value;
+    mainChosenInterval = dif_level === '1' ? mainHardInterval : mainNormalInterval;
     gameBoard.addEventListener("mousedown", shoot);
     resetScores();
     update();
     reload();
-    gameInterval = setInterval(update, dif_level === '1' ? 4000 : 8000);
+    life.forEach(function(element) {
+        element.classList.remove("transparent");
+        element.classList.add("opaque");
+    });
+
+    gameInterval = setInterval(update, mainChosenInterval);
 }
 
 function finishGame() {
     gameBoard.removeEventListener("mousedown", shoot);
+    life.forEach(function(element) {
+        element.classList.remove("opaque");
+        element.classList.add("transparent");
+    });
     ammo.forEach(function (bullet) {
         bullet.classList.remove("opaque");
         bullet.classList.add("transparent")
@@ -231,7 +304,3 @@ function resetScores() {
 }
 
 welcomeScreen();
-
-
-//TODO: welcome screen with instructions, game over screen (with points gathered & restart button, records?
-// TODO Difficulty level - client changes difficulty level - based on this parameter either increase the number of people visible on screen or increase the speed with which they appear.

@@ -53,6 +53,11 @@ h2 {
     width: 70%;
 }
 
+.welcomeScreenImg {
+    vertical-align: middle;
+    padding-left: 0.5rem;
+}
+
 #game {
     height: 90%;
     width: 90%;
@@ -63,6 +68,7 @@ h2 {
     border: 1px solid #ececec;
     color: #090909;
     text-shadow: none;
+    cursor: url("./game_images/target.cur"), auto;
 }
 
 #game p {
@@ -131,11 +137,11 @@ h2 {
     margin-top: 1rem;
     cursor: pointer;
     box-sizing: border-box;
-    border: solid black 1px;
 }
 .goback {
     text-decoration: none;
     color: rgb(236, 236, 236);
+    text-transform: uppercase;
 }
 
 #weapon,
@@ -256,6 +262,10 @@ input[type="radio"]{
         padding-top: 0.5rem;
     }
 
+    .goback {
+        font-size: 0.8rem;
+    }
+
     #game p {
         font-size: 0.7rem;
         padding-left: 1%;
@@ -287,7 +297,14 @@ input[type="radio"]{
         width: 15px;
         margin-bottom: -25px;
     }
+    .welcomeScreenImg {
+        height: 4rem;
+    }
 
+    .person {
+        width: 40px;
+        height: 100px;
+    }
 
 }
 
@@ -299,6 +316,12 @@ input[type="radio"]{
     h2 {
         font-size: 0.8rem;
         padding-top: 0.5rem;
+    }
+
+    .goback,
+    #score,
+    #scoreCivilians {
+        font-size: 0.8rem;
     }
 
     #game p {
@@ -318,9 +341,27 @@ input[type="radio"]{
     #scoreCivilians {
         display: inline-block;
     }
+
     #game {
-        height: 90vh;
+        height: 80vh;
         width: 100vw;
     }
+
+    .welcomeScreenImg {
+        height: 3rem;
+    }
+
+    #weapon div{
+        width: 10px;
+        height: 30px;
+        margin-bottom: -25px;
+    }
+
+    #life div{
+        height: 40px;
+        width: 20px;
+        margin-bottom: -40px;
+    }
+
 
 }
