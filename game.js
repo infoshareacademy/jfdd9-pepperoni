@@ -10,7 +10,6 @@ var gameInterval;
 var civiliansKilled = 0;
 var animateIterator = 1;
 var dif_level = 0; // 0 - novice, 1 - brutal
-var randomNum = Math.floor((Math.random() * 4) +1 );
 var ammoHTML = document.getElementsByClassName("ammo");
 var ammo = Array.prototype.slice.call(ammoHTML);
 var ammunition = 5;
@@ -87,7 +86,7 @@ function shoot(event) {
 
     if (clickedElement.classList.contains("person")) {
         clickedElement.classList.add('dead');
-        if (clickedElement.classList.contains("gangster")) {
+        if (clickedElement.classList.contains("gangster1" || "gangster2" || "gangster3" || "gangster4")) {
             score += 1;
         } else if (clickedElement.classList.contains("civilian")) {
             civiliansKilled += 1;
@@ -98,16 +97,28 @@ function shoot(event) {
         }
 
         var animInterval = setInterval(function () {
-            if (clickedElement.classList.contains("gangster")) {
+            if (clickedElement.classList.contains("gangster1")) {
 
                 clickedElement.style.backgroundImage = 'url("./game_images/cut1/GunOne' + (animateIterator++) + '.png")';
+            }
+            if (clickedElement.classList.contains("gangster2")) {
+
+                clickedElement.style.backgroundImage = 'url("./game_images/cut2/GunTwo' + (animateIterator++) + '.png")';
+            }
+            if (clickedElement.classList.contains("gangster3")) {
+
+                clickedElement.style.backgroundImage = 'url("./game_images/cut3/GunThree' + (animateIterator++) + '.png")';
+            }
+            if (clickedElement.classList.contains("gangster4")) {
+
+                clickedElement.style.backgroundImage = 'url("./game_images/cut4/GunFour' + (animateIterator++) + '.png")';
             }
 
             else if (clickedElement.classList.contains("civilian")) {
                 clickedElement.style.backgroundImage = 'url("./game_images/civ/cyvil-' + (animateIterator++) + '.png")';
             }
 
-            if (animateIterator === 5) {
+            if (animateIterator === 10) {
                 animateIterator = 1;
                 clearInterval(animInterval);
                 if (gameBoard.contains(clickedElement)) {
@@ -116,7 +127,7 @@ function shoot(event) {
                 arrayWithSlots.push(parseInt(clickedElement.style.left));
             }
 
-        }, 40);
+        }, 80);
 
     }
     scoreSection.innerText = "Score: " + score;
@@ -133,8 +144,23 @@ function clearBoard() {
 
 function createRandomPerson() {
     if (Math.random() > civilianProbability) {
-        generatePerson("gangster") //&& randomNum <= 4;
-    } else {
+        generatePerson("gangster1" || "gangster2"|| "gangster3" || "gangster4") //&& randomNum <= 4;
+    if (Math.floor((Math.random() * 4) +1 ) === 1){
+        generatePerson("gangster1")
+    }
+        if (Math.floor((Math.random() * 4) +1 ) === 2){
+            generatePerson("gangster2")
+        }
+        if (Math.floor((Math.random() * 4) +1 ) === 3){
+            generatePerson("gangster3")
+        }
+        if (Math.floor((Math.random() * 4) +1 ) === 4){
+            generatePerson("gangster4")
+        }
+
+    }
+
+    else {
         generatePerson('civilian')
     }
 }
