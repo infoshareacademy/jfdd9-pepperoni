@@ -101,4 +101,4 @@ window.addEventListener('keydown', function(event){
     if(event.code==="KeyG" && secretKeys.length > 2){
         secretKeys = ['G'];
     }
-})
+});
