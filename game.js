@@ -191,7 +191,7 @@ function finishGame() {
             bullet.classList.add("transparent")
     });
     clearBoard();
-    window.clearInterval(gameInterval);
+    clearInterval(gameInterval);
     gameOverScreen();
 }
 
