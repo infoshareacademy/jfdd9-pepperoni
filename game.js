@@ -9,7 +9,6 @@ var civilianProbability = 0.4;
 var gameInterval;
 var civiliansKilled = 0;
 var dif_level = 0; // 0 - novice, 1 - brutal
-var randomNum = Math.floor((Math.random() * 4) +1 );
 var ammoHTML = document.getElementsByClassName("ammo");
 var ammo = Array.prototype.slice.call(ammoHTML);
 var ammunition = 5;
