@@ -2,13 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play our GangBook game. Kill all the gangsters and spare civilians!">
+    <title>GangBook Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="game-style.css">
 </head>
 <body>
-
-
-<div class="game">
-    <h1>Thank You For Subscribing!</h1>
+<a href="index.html" class="goback"> << Go back to main site</a>
+<div class="thank-you">
+    <h1>Thank You For Your Interest!</h1>
 </div>
+<section class="section-game">
+    <div id="score">Score: 0</div>
+    <div id="scoreCivilians">Civilians killed: 0</div>
+    <div id="weapon-and-life">
+        <div id="weapon">
+            <div class="ammo transparent"></div>
+            <div class="ammo transparent"></div>
+            <div class="ammo transparent"></div>
+            <div class="ammo transparent"></div>
+            <div class="ammo transparent"></div>
+        </div>
+        <div id="life">
+            <div class="heart transparent"></div>
+            <div class="heart transparent"></div>
+            <div class="heart transparent"></div>
+            <div class="heart transparent"></div>
+            <div class="heart transparent"></div>
+        </div>
+    </div>
+    <div id="game">
+
+    </div>
+    <div id="restartButton"></div>
+</section>
+
+<div style="display: none">
+    <img src="game_images/cut1/GunOne1.png" />
+    <img src="game_images/cut1/GunOne2.png" />
+    <img src="game_images/cut1/GunOne3.png" />
+    <img src="game_images/cut1/GunOne4.png" />
+    <img src="game_images/cut1/GunOne5.png" />
+    <img src="game_images/cut1/GunOne6.png" />
+    <img src="game_images/cut1/GunOne7.png" />
+    <img src="game_images/cut1/GunOne8.png" />
+    <img src="game_images/cut2/GunTwo1.png" />
+    <img src="game_images/cut2/GunTwo2.png" />
+    <img src="game_images/cut2/GunTwo3.png" />
+    <img src="game_images/cut2/GunTwo4.png" />
+    <img src="game_images/cut2/GunTwo5.png" />
+    <img src="game_images/cut2/GunTwo6.png" />
+    <img src="game_images/cut2/GunTwo7.png" />
+    <img src="game_images/cut2/GunTwo8.png" />
+    <img src="game_images/cut3/GunThree1.png" />
+    <img src="game_images/cut3/GunThree2.png" />
+    <img src="game_images/cut3/GunThree3.png" />
+    <img src="game_images/cut3/GunThree4.png" />
+    <img src="game_images/cut3/GunThree5.png" />
+    <img src="game_images/cut3/GunThree6.png" />
+    <img src="game_images/cut3/GunThree7.png" />
+    <img src="game_images/cut3/GunThree8.png" />
+    <img src="game_images/cut4/GunFour1.png" />
+    <img src="game_images/cut4/GunFour2.png" />
+    <img src="game_images/cut4/GunFour3.png" />
+    <img src="game_images/cut4/GunFour4.png" />
+    <img src="game_images/cut4/GunFour5.png" />
+    <img src="game_images/cut4/GunFour6.png" />
+    <img src="game_images/cut4/GunFour7.png" />
+    <img src="game_images/cut4/GunFour8.png" />
+    <img src="game_images/civ/cyvil-1.png" />
+    <img src="game_images/civ/cyvil-2.png" />
+    <img src="game_images/civ/cyvil-3.png" />
+    <img src="game_images/civ/cyvil-4.png" />
+    <img src="game_images/civ/cyvil-5.png" />
+    <img src="game_images/civ/cyvil-6.png" />
+    <img src="game_images/civ/cyvil-7.png" />
+    <img src="game_images/civ/cyvil-8.png" />
+    <audio controls loop src = "./game-sounds/lassolady.mp3" autoplay>
+        <embed src = "./game-sounds/lassolady.mp3" loop = "true" />
+
+    </audio>
+
+
+</div>
+
+<audio id="gunshot" src="./game-sounds/gunshot.mp3"></audio>
+<audio id="noAmmo" src="./game-sounds/noAmmo.mp3"></audio>
+<audio id="shotKiller" src="./game-sounds/shotKiller.mp3"></audio>
+<audio id="reload" src="./game-sounds/reload.mp3"></audio>
+<audio id="scream" src="./game-sounds/scream.mp3"></audio>
+<audio id="screamCyvilian" src="./game-sounds/screamCyvilian.mp3"></audio>
+<script src="game.js"></script>
 </body>
 </html>

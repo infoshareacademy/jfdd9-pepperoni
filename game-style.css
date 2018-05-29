@@ -1,0 +1,368 @@
+body {
+    margin: 0;
+    background-color: #090909;
+    color: rgb(236, 236, 236);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    line-height: 2rem;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+}
+
+h1 {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+    padding: 0 2%;
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.6rem;
+    margin-top: 0;
+    padding-top: 3%;
+    margin-bottom: 0;
+}
+
+#game div:not(.person) {
+    background-color: rgba(236,236,236,0.7);
+    padding-bottom: 0;
+    height:100%;
+}
+
+.thank-you {
+    text-align: center;
+}
+
+.section-game {
+    width: 100vw;
+    height: 550px;
+    text-align: center;
+}
+
+#welcome-screen{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90%;
+    z-index: 1;
+    width: 70%;
+}
+
+.welcomeScreenImg {
+    vertical-align: middle;
+    padding-left: 0.5rem;
+}
+
+#game {
+    height: 90%;
+    width: 90%;
+    margin: 2% auto;
+    position: relative;
+    background-image: url("./game_images/gry/desert.png");
+    background-size: 100% 100%;
+    border: 1px solid #ececec;
+    color: #090909;
+    text-shadow: none;
+    cursor: url("./game_images/target.cur"), auto;
+}
+
+#game p {
+    font-size: 1rem;
+    padding-left: 4%;
+    padding-right: 4%;
+    line-height: 2rem;
+}
+
+
+.person {
+    bottom: 0;
+    height: 200px;
+    width: 80px;
+}
+
+.gangster1 {
+    position: absolute;
+    /*height: 15%;*/
+    /*width: 6%;*/
+    background-image: url("./game_images/cut1/GunOne1.png");
+    background-size: 100% 100%;
+}
+.gangster2 {
+    position: absolute;
+    /*height: 15%;*/
+    /*width: 6%;*/
+    background-image: url("./game_images/cut2/GunTwo1.png");
+    background-size: 100% 100%;
+}
+.gangster3 {
+    position: absolute;
+    /*height: 15%;*/
+    /*width: 6%;*/
+    background-image: url("./game_images/cut3/GunThree1.png");
+    background-size: 100% 100%;
+}
+.gangster4 {
+    position: absolute;
+    /*height: 15%;*/
+    /*width: 6%;*/
+    background-image: url("./game_images/cut4/GunFour1.png");
+    background-size: 100% 100%;
+}
+
+.civilian {
+    position: absolute;
+    /*height: 20%;*/
+    /*width: 10%;*/
+    background-image: url("./game_images/civ/cyvil-1.png");
+    background-size: 100% 100%;
+}
+.animation {
+
+}
+
+.button-game {
+    font-family: 'Press Start 2P', cursive;
+    height: 3rem;
+    min-width: 40%;
+    background-color: #781e13;
+    border: none;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.goback {
+    text-decoration: none;
+    color: rgb(236, 236, 236);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+#weapon,
+#life {
+    height: 0;
+}
+
+#weapon-and-life{
+    position: relative;
+    margin-left: 0;
+    padding: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-around;
+}
+
+#weapon div{
+    background-image: url("./game_images/ammunition-50.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: -75px;
+    width: 16px;
+    height: 50px;
+    display: inline-block;
+}
+
+#life div{
+    background-image: url("./game_images/heart.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: -75px;
+    height: 50px;
+    width: 30px;
+    display: inline-block;
+}
+
+.transparent {
+    opacity: 0.2;
+}
+
+.opaque {
+    opacity: 1;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+.container {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #fff;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #a50a00;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ead9c5;
+}
+
+@media (max-width: 609px) {
+    body {
+        font-size: 13px;
+    }
+
+    h1 {
+        display:none;
+    }
+
+    h2 {
+        font-size: 0.8rem;
+        padding-top: 0.5rem;
+    }
+
+    .goback {
+        font-size: 0.8rem;
+    }
+
+    #game p {
+        font-size: 0.7rem;
+        padding-left: 1%;
+        padding-right: 1%;
+        line-height: 1.5rem;
+    }
+
+    .button-game {
+        height: 2rem;
+        min-width: 30%;
+        font-size: 0.8rem;
+    }
+
+    #game {
+        height: 100%;
+        width: 100vw;
+        margin: 1% auto;
+        position: relative;
+    }
+
+    #weapon div{
+        width: 8px;
+        height: 25px;
+        margin-bottom: -25px;
+    }
+
+    #life div{
+        height: 30px;
+        width: 15px;
+        margin-bottom: -25px;
+    }
+    .welcomeScreenImg {
+        height: 4rem;
+    }
+
+    .person {
+        width: 40px;
+        height: 100px;
+    }
+
+}
+
+@media only screen and (orientation: landscape) and (max-width: 854px) {
+    h1 {
+        display: none;
+    }
+
+    h2 {
+        font-size: 0.8rem;
+        padding-top: 0.5rem;
+    }
+
+    .goback,
+    #score,
+    #scoreCivilians {
+        font-size: 0.8rem;
+    }
+
+    #game p {
+        font-size: 0.7rem;
+        padding-left: 1%;
+        padding-right: 1%;
+        line-height: 1.5rem;
+    }
+
+    .button-game {
+        height: 2rem;
+        min-width: 30%;
+        font-size: 0.8rem;
+    }
+
+    #score,
+    #scoreCivilians {
+        display: inline-block;
+    }
+
+    #game {
+        height: 80vh;
+        width: 100vw;
+    }
+
+    .welcomeScreenImg {
+        height: 3rem;
+    }
+
+    #weapon div{
+        width: 10px;
+        height: 30px;
+        margin-bottom: -25px;
+    }
+
+    #life div{
+        height: 40px;
+        width: 20px;
+        margin-bottom: -40px;
+    }
+
+
+}
