@@ -211,7 +211,10 @@ li .menu-item {
     padding: 1.5rem 1rem 1rem;
 }
 
-.menu-item:hover {
+/*.menu-item:hover {*/
+    /*background-color: #E2083C;*/
+}
+.active {
     background-color: #E2083C;
 }
 
